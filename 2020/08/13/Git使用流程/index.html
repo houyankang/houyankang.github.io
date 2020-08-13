@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#58b77a>
-  <title>Yan&#39;s Notes</title>
+  <title>Git 使用流程 | Yan&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Yan">
   <meta name="keywords" content="Java��Html��CSS��JavaScript�ȱ�̾�������������ܽᡢ�ĵ����">
@@ -87,7 +87,7 @@
   <div class="page-title">
     <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
     <span>2020-08-13</span>
-    <h2></h2>
+    <h2>Git 使用流程</h2>
     
     <div class="social-links">
     <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1337485110&amp;site=qq&amp;menu=yes" target="_blank"><i class="fa fa-qq fa-fw"></i></a>
@@ -99,10 +99,7 @@
   <div class="lx-post">
     <div class="lx-entry padding">
       <div>
-        <hr>
-<p>title：Git 使用流程<br>comment：true</p>
-<hr>
-<h1 id="Git流程"><a href="#Git流程" class="headerlink" title="Git流程"></a>Git流程</h1><a id="more"></a>
+        <h1 id="Git流程"><a href="#Git流程" class="headerlink" title="Git流程"></a>Git流程</h1><a id="more"></a>
 
 <p><a href="">特别注意：当中央仓库是空的时，可以将本地文件直接传入到中央仓库，若是中央仓库有文件时，只能先clone下来修改后再去进行上传操作！！！</a></p>
 <h1 id="一、单人操作"><a href="#一、单人操作" class="headerlink" title="一、单人操作"></a>一、单人操作</h1><h3 id="1-1、步骤1"><a href="#1-1、步骤1" class="headerlink" title="1.1、步骤1"></a>1.1、步骤1</h3><blockquote>
@@ -110,7 +107,7 @@
 </blockquote>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291159760.png" alt="1592291159760">步骤2</p>
 <h3 id="1-2、步骤2：登录（第一次使用时）"><a href="#1-2、步骤2：登录（第一次使用时）" class="headerlink" title="1.2、步骤2：登录（第一次使用时）"></a>1.2、步骤2：登录（第一次使用时）</h3><blockquote>
-<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#x6d;</a>“  #邮箱</p>
+<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#109;&#x61;&#105;&#108;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#109;">&#x65;&#109;&#x61;&#105;&#108;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#109;</a>“  #邮箱</p>
 <p>git config -l  查看信息</p>
 </blockquote>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291436256.png" alt="1592291436256"></p>
@@ -177,12 +174,12 @@
 <div class="lx-navigation">
 	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="#">
+		<a class="copy" href="/2020/08/13/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
 						<span>Next</span>
-						<h3>No newer post</h3>
+						<h3>常用工具</h3>
 					</div>
 				</div>
 			</div>
@@ -286,7 +283,26 @@
 }());
 </script>
 <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/local.search.js"></script>
-
+<script src="//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'fIF1fHkqD00TisI8hLBdCjf2-gzGzoHsz',
+    appKey: 'VyJaF3CTrnAmPCdwbSsaTtvS',
+    placeholder: 'Say something.',
+    avatar: 'identicon',
+    meta: guest,
+    pageSize: '10' || 10,
+    lang: 'en' || 'zh-cn'
+  });
+</script>
 
 </body>
 </html>
