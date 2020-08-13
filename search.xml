@@ -1,6 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2020/08/13/Git%20for%20%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<hr>
+<p>title：Git协作开发<br>comment：true</p>
+<hr>
+<h1 id="Git协作开发"><a href="#Git协作开发" class="headerlink" title="Git协作开发"></a>Git协作开发</h1><a id="more"></a>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200616223339.png" alt="image-20200616223337238"></p>
+<blockquote>
+<p>整体流程：</p>
+<p>Git 公共仓库账号 → 邀请协作伙伴 → 协作伙伴都同意。</p>
+<p>Git 公共仓库账号 → 搭好项目架子上传 → <code>Git链接</code> → 作为基础代码可以被 被邀请者 pull(拉) 到本地。</p>
+<p>Git 公共仓库账号 → 创建 dev 分支 → push 远程仓库（即上传，此时 dev 分支代码同 master 代码）</p>
+<p>协作者 → IDEA登陆 Git → 打开<code>Git链接</code> → Fork到自己仓库 → IDEA创建以自己仓库链接为源码的项目</p>
+<p>协作者 → 更新代码 → Add → Commit → Commit Message(必填)</p>
+<p>协作者 → dev分支 → Push 推送 → 页面操作创建 pull request</p>
+<p>Git 公共仓库账号 → 收到新的 pull request → review 代码没问题(相当于过了测试阶段) → Merge(默认合并到主分支)</p>
+</blockquote>
+<h3 id="1-添加协作伙伴"><a href="#1-添加协作伙伴" class="headerlink" title="1. 添加协作伙伴"></a>1. 添加协作伙伴</h3><p>先注册一个公共 Git 账号，创建公共仓库，用于存放代码、更新项目代码。</p>
+<p>该公共仓库所属账号，邀请所有协作伙伴，伙伴均同意成为伙伴。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195042.png" alt="image-20200713195041226"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195223.png" alt="image-20200713195222104"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195300.png" alt="image-20200713195259380"></p>
+<p>邮件里点击按钮，进入页面直接同意邀请即可。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195349.png" alt="image-20200713195348069"></p>
+<h3 id="2-IDEA-Git-操作"><a href="#2-IDEA-Git-操作" class="headerlink" title="2. IDEA-Git 操作"></a>2. IDEA-Git 操作</h3><p>公共仓库账号需要操作的是：将基础架子代码上传。名称不变，描述信息要写。</p>
+<ul>
+<li>推主分支上一份 基础的架子 代码。</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713201050.png" alt="image-20200713201048787"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713201130.png" alt="image-20200713201129040"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713201349.png" alt="image-20200713201348356"></p>
+<ul>
+<li>创建 dev 分支</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713202525.png" alt="image-20200713202524457"></p>
+<p>Ctrl + Shift + ` &gt;&gt; Git &gt;&gt; 操作分支，将 dev 分支推到远程仓库。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713202842.png" alt="image-20200713202841629"></p>
+<p>远程仓库中可以看到 dev 分支代码（截止目前 dev 和 master 主分支代码相同）。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713203031.png" alt="image-20200713203030154"></p>
+<h3 id="3-被邀请的协作者操作"><a href="#3-被邀请的协作者操作" class="headerlink" title="3. 被邀请的协作者操作"></a>3. 被邀请的协作者操作</h3><ul>
+<li>准备工作：需要协作开发的人员在 IDEA 中登陆自己的 Git 账号。</li>
+</ul>
+<p>其他所有被邀请者登陆自己的账号，登陆之后才能进行相关的 pull(拉) 和 push(推) 代码的操作，切记不能使用 公共仓库的账号直接推库（会影响所有被邀请者的本地代码提交-&gt;冲突）。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713200645.png" alt="image-20200713200643684"></p>
+<ul>
+<li>打开公共仓库的 git 地址，Fork 一份到自己仓库中</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205136.png" alt="image-20200713205135196"></p>
+<ul>
+<li>然后使用自己仓库中 fork 下来的代码的 git 路径创建工程</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/blog/1853022/202004/1853022-20200427171743338-1863064839.png" alt="img"></p>
+<p><img src="https://img2020.cnblogs.com/blog/1853022/202004/1853022-20200427171907508-1590551135.png" alt="img"></p>
+<ul>
+<li>右下角，切换到 dev 分支，进行代码更新和上库</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713204616.png" alt="image-20200713204615352"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713204639.png" alt="image-20200713204638220"></p>
+<ul>
+<li>更新上库步骤三步走：<strong>Add</strong>(添加到暂存库) → <strong>Commit</strong>(提交到本地仓库) → <strong>Push</strong>(推送的远程仓库)</li>
+</ul>
+<p><code>要求：必须填写 commit message！不填不予合并！</code></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205448.png" alt="image-20200713205446918"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205708.png" alt="image-20200713205707122"></p>
+<p>分支推送才算真正的推送成功：<code>遇到 TimeOut 超时错误提示，不用怕，网络问题，继续 Push即可。</code></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205822.png" alt="image-20200713205821000"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205803.png" alt="image-20200713205802739"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210157.png" alt="image-20200713210155223"></p>
+<blockquote>
+<p>看到上面这句，恭喜你，已经推送到 分支 成功了！</p>
+</blockquote>
+<ul>
+<li>然后，提交 pull request （才能被 公共仓库 账号合并到主分支，测试、发布上线）</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210338.png" alt="image-20200713210336602"></p>
+<p>如果看不到 Compare &amp; pull request 按钮的提示，那么做如下操作也是一样：</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713212252.png" alt="image-20200713212251506"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210349.png" alt="image-20200713210348400"></p>
+<h3 id="4-公共仓库账号合并代码"><a href="#4-公共仓库账号合并代码" class="headerlink" title="4. 公共仓库账号合并代码"></a>4. 公共仓库账号合并代码</h3><p>收到新的 pull request(1)</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210436.png" alt="image-20200713210435088"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210620.png" alt="image-20200713210619833"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713212655.png" alt="image-20200713212654846"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713212717.png" alt="image-20200713212715779"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210653.png" alt="image-20200713210652493"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210716.png" alt="image-20200713210715174"></p>
+<h3 id="5-测过OK-将-dev-分支合并到-master-主分支"><a href="#5-测过OK-将-dev-分支合并到-master-主分支" class="headerlink" title="5. (测过OK)将 dev 分支合并到 master 主分支"></a>5. (测过OK)将 dev 分支合并到 master 主分支</h3><p>公共仓库账号需要的操作：</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213545.png" alt="image-20200713213544437"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213604.png" alt="image-20200713213603838"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213627.png" alt="image-20200713213626643"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213651.png" alt="image-20200713213649836"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213726.png" alt="image-20200713213725598"></p>
+<p>继续 Merge 即可。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213738.png" alt="image-20200713213737265"></p>
+<h3 id="6-最高频坑：代码冲突"><a href="#6-最高频坑：代码冲突" class="headerlink" title="6. 最高频坑：代码冲突"></a>6. 最高频坑：代码冲突</h3><p>项目组 n 个人共同协作开发公司项目，项目的代码版本从 01 版本开始迭代。（01是什么意思？如图）</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200714001145.png" alt="image-20200714001144030"></p>
+<p>第一天，A B C 三个程序猿一大早就从Git链接创建了工程，开始写自己部分的代码。</p>
+<p>假定 A 写登陆注册、B写购物车、C写列表页详情页等，都是写后台 API 接口</p>
+<p>早上拉下来的代码，大家都是一样的 01 版本(即 commit id，非项目自定义版本号)。</p>
+<p>临近下班时，A 写完了自己的功能，add→commit→push了代码，测试测过了，主管 merge 了代码，此时 Git 的版本号即 commit id 已经变为了 02 了。</p>
+<p>那么问题来了：<code>B 和 C 的代码是基于早上拉下来的 01 写的，B与C不论谁再次提交都会冲突且无法提交！</code></p>
+<p>解决办法：</p>
+<p>[<strong>B写好的代码 1份</strong>]  → 合并 → [<strong>git clone xxx.git 为 02 版本的代码一份</strong>]</p>
+<p>Beyond Compare 代码对比工具，将 B 写好的代码合并到基于 02 版本(与库上一致)后，通过 git bash 命令行进行 Push 操作。</p>
+<p>（B提交后，dev 分支版本变为 03，然后 C 需要重复 B 的操作，基于 03 开始合代码提交，<code>这是必然且必须的</code>）</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713235930.png" alt="image-20200713235928806"></p>
+<p>Beyond Compare(坡懈无限30天)</p>
+<p>链接：<a href="https://pan.baidu.com/s/1MTBlQ0SYYfvLhfNB3pSkug">https://pan.baidu.com/s/1MTBlQ0SYYfvLhfNB3pSkug</a><br>提取码：alrs</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># git config --global user.name &quot;xxx&quot;</span></span><br><span class="line"><span class="comment"># git config --global user.email &quot;xxx&quot;</span></span><br><span class="line">git add filename  <span class="comment"># 【添加】到暂存库（==内存）</span></span><br><span class="line">git commit -m <span class="string">&quot;commit message&quot;</span>  <span class="comment"># 【提交】到本地仓库（==硬盘）</span></span><br><span class="line">git push origin dev  <span class="comment"># 【推送】到远程 dev 分支（==远端服务器）</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200714000813.png" alt="image-20200714000811832"></p>
+<p>GitHub 提 pull request，公共仓库账号查看并合并 pull request 里的代码到 dev，测试拉取 dev 分支最新代码进行测试，测试OK后，公共仓库账号再将 dev 直接合并到 master，作为正式版本发布上线。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/08/13/Git%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<hr>
+<p>title：Git 使用流程<br>comment：true</p>
+<hr>
+<h1 id="Git流程"><a href="#Git流程" class="headerlink" title="Git流程"></a>Git流程</h1><a id="more"></a>
+
+<p><a href="">特别注意：当中央仓库是空的时，可以将本地文件直接传入到中央仓库，若是中央仓库有文件时，只能先clone下来修改后再去进行上传操作！！！</a></p>
+<h1 id="一、单人操作"><a href="#一、单人操作" class="headerlink" title="一、单人操作"></a>一、单人操作</h1><h3 id="1-1、步骤1"><a href="#1-1、步骤1" class="headerlink" title="1.1、步骤1"></a>1.1、步骤1</h3><blockquote>
+<p>创建库的存储位置，并运行软件</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291159760.png" alt="1592291159760">步骤2</p>
+<h3 id="1-2、步骤2：登录（第一次使用时）"><a href="#1-2、步骤2：登录（第一次使用时）" class="headerlink" title="1.2、步骤2：登录（第一次使用时）"></a>1.2、步骤2：登录（第一次使用时）</h3><blockquote>
+<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#x6d;&#x61;&#x69;&#108;&#64;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x65;&#x6d;&#x61;&#x69;&#108;&#64;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a>“  #邮箱</p>
+<p>git config -l  查看信息</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291436256.png" alt="1592291436256"></p>
+<blockquote>
+<p>全局文件所在位置</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291602333.png" alt="1592291602333"></p>
+<h3 id="1-3、步骤3-：初始化"><a href="#1-3、步骤3-：初始化" class="headerlink" title="1.3、步骤3 ：初始化"></a>1.3、步骤3 ：初始化</h3><blockquote>
+<p>指令：$ git init</p>
+</blockquote>
+<h3 id="1-4、步骤4：将本地文件上传到缓存区"><a href="#1-4、步骤4：将本地文件上传到缓存区" class="headerlink" title="1.4、步骤4：将本地文件上传到缓存区"></a>1.4、步骤4：将本地文件上传到缓存区</h3><blockquote>
+<p>指令：$ git status    查看状态</p>
+<p>​                $git add <a href="">文件名</a>    将文件添加到缓存区</p>
+<p>​                $git commit -m <a href="">“注释”</a>    提交到远程仓库</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291911611.png" alt="1592291911611"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592293051643.png" alt="1592293051643"></p>
+<h3 id="1-5、步骤5：将文件上传到中央仓库"><a href="#1-5、步骤5：将文件上传到中央仓库" class="headerlink" title="1.5、步骤5：将文件上传到中央仓库"></a>1.5、步骤5：将文件上传到中央仓库</h3><blockquote>
+<p>指令：$ git remote add origin <a href="">url</a>    连接到中央仓库</p>
+<p>​              $ git push origin master        推送到中央仓库</p>
+<p><a href="">注意：若是本身就是clone下来的文件 连接中央仓库时可以不加add</a></p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307269239.png" alt="1592307269239"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307309971.png" alt="1592307309971"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592296775397.png" alt="1592296775397"></p>
+<h1 id="二、伙伴协作（给予仓库权限）"><a href="#二、伙伴协作（给予仓库权限）" class="headerlink" title="二、伙伴协作（给予仓库权限）"></a>二、伙伴协作（给予仓库权限）</h1><p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307936863.png" alt="1592307936863"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308149914.png" alt="1592308149914"></p>
+<blockquote>
+<p>然后合作伙伴会在邮箱中收到邀请，进而同意请求</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308289249.png" alt="1592308289249"></p>
+<blockquote>
+<p>此时合作伙伴进入自己的GitHub，就会看到被分享出来的仓库</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592309730924.png" alt="1592309730924"></p>
+<blockquote>
+<p>此时，合作伙伴可以clone中的数据然后进行修改提交，这和个时候，<a href="">合作伙伴有权限直接对主仓库进行提交</a></p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310276494.png" alt="1592310276494"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310343257.png" alt="1592310343257"></p>
+<h1 id="三、第三方协助（没有仓库权限）"><a href="#三、第三方协助（没有仓库权限）" class="headerlink" title="三、第三方协助（没有仓库权限）"></a>三、第三方协助（没有仓库权限）</h1><blockquote>
+<p>​        再创建一个新用户，然后登录，拷贝仓库地址（<a href="https://github.com/xxxxxxx.git%EF%BC%89%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%EF%BC%8C%E7%84%B6%E5%90%8E%E7%82%B9%E5%87%BBFork%EF%BC%8C%E8%A1%A8%E7%A4%BA%E6%8B%B7%E8%B4%9D%E4%B9%8B%E5%89%8D%E7%9A%84%E4%BB%93%E5%BA%93%E5%88%B0%E8%AF%A5%E7%94%A8%E6%88%B7%E4%B8%8B">https://github.com/xxxxxxx.git），在浏览器执行，然后点击Fork，表示拷贝之前的仓库到该用户下</a>  </p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image002.gif" alt="img"></p>
+<p>此时，相当于在GitHub中有了两个相同的仓库，一个为master，一个为Fork，然后在磁盘再创建一个目录，在目录下右键git bash 打开新窗口，进行如下操作：</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image004.gif" alt="img"></p>
+<p>此时C把A仓库克隆下来之后进行了修改，然后又提交到了C自己的仓库，但实际运行的是A仓库中的代码，所以C需要向A发送请求，A需要同意请求，然后合并即可。</p>
+<p>C发送请求：（首先刷新C当前浏览器页面，点击New pull requst）</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image006.gif" alt="img"></p>
+<p>确认发送请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image008.gif" alt="img"></p>
+<p>再次确认发送请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image010.gif" alt="img"></p>
+<p>此时请求已经发送，A登录后查看请求，若已登录可直接刷新当前浏览器页面</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image012.gif" alt="img"></p>
+<p>点击查看请求后，同意合并请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image014.gif" alt="img"></p>
+<p>再次确认合并</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>OSS图片上传+Feign</title>
+    <url>/2020/08/13/OSS%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<h1 id="OSS图片上传-Feign"><a href="#OSS图片上传-Feign" class="headerlink" title="OSS图片上传+Feign"></a>OSS图片上传+Feign</h1><a id="more"></a>
+
+<h3 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1.导入依赖"></a>1.导入依赖</h3><blockquote>
+<p>这里需要阿里云的依赖、图片上传的依赖、openfeign的依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.22<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h3 id="2-配置OSS"><a href="#2-配置OSS" class="headerlink" title="2.配置OSS"></a>2.配置OSS</h3><blockquote>
+<p>在阿里云上申请<code>accessKeyId</code>和<code>accessKeySecret</code></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OssCore</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Endpoint以杭州为例，其它Region请按实际情况填写。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String endpoint = <span class="string">&quot;https://oss-cn-beijing.aliyuncs.com&quot;</span>;</span><br><span class="line">    <span class="comment">// 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。</span></span><br><span class="line">    <span class="comment">// 强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录RAM控制台创建RAM账号。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String accessKeyId = <span class="string">&quot;申请的accessKeyId&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String accessKeySecret = <span class="string">&quot;申请的accessKeySecret&quot;</span>;</span><br><span class="line">    <span class="comment">// 创建OSSClient实例。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> OSS ossClient;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">       ossClient= <span class="keyword">new</span> OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建存储空间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createBucket</span><span class="params">(String bname)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 创建CreateBucketRequest对象。</span></span><br><span class="line">        CreateBucketRequest createBucketRequest = <span class="keyword">new</span> CreateBucketRequest(bname);</span><br><span class="line">        <span class="comment">//创建存储空间</span></span><br><span class="line">        ossClient.createBucket(createBucketRequest);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//列出存储空间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Bucket&gt; <span class="title">listBucket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ossClient.listBuckets();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上传 --字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendStr</span><span class="params">(String bname,String objname,String msg)</span></span>&#123;</span><br><span class="line">        <span class="comment">//实现上传</span></span><br><span class="line">        ossClient.putObject(bname,objname,<span class="keyword">new</span> ByteArrayInputStream(msg.getBytes()));</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,objname, DateUtil.comDate(Calendar.YEAR,<span class="number">1</span>)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上传 --字节</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendResouce</span><span class="params">(String bname,String objname,<span class="keyword">byte</span>[] data)</span></span>&#123;</span><br><span class="line">        ossClient.putObject(bname,objname,<span class="keyword">new</span> ByteArrayInputStream(data));</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,objname, DateUtil.comDate(Calendar.YEAR,<span class="number">1</span>)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上传 --</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendResouce</span><span class="params">(String bname, File file)</span></span>&#123;</span><br><span class="line">        ossClient.putObject(bname,file.getName(),file);</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,file.getName(), DateUtil.comDate(Calendar.YEAR,<span class="number">1</span>)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">createURL</span><span class="params">(String bname,String objname,<span class="keyword">int</span> days)</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,objname, DateUtil.comDate(Calendar.DAY_OF_MONTH,days)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//删除</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">delResource</span><span class="params">(String bname,String objname)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            ossClient.deleteObject(bname, objname);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//列举文件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">listResource</span><span class="params">(String bname)</span></span>&#123;</span><br><span class="line">        List&lt;String&gt; files=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        ObjectListing listing=  ossClient.listObjects(bname);</span><br><span class="line">        <span class="keyword">for</span> (OSSObjectSummary objectSummary : listing.getObjectSummaries()) &#123;</span><br><span class="line">           files.add(objectSummary.getKey());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> files;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建OSS存储空间"><a href="#3-创建OSS存储空间" class="headerlink" title="3.创建OSS存储空间"></a>3.创建OSS存储空间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Oss_Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OssCore.createBucket(<span class="string">&quot;yingy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-提供者服务"><a href="#4-提供者服务" class="headerlink" title="4.提供者服务"></a>4.提供者服务</h3><ul>
+<li>配置启动类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span> <span class="comment">//发布服务</span></span><br><span class="line"><span class="meta">@EnableFeignClients(&quot;com.demo.yingyan&quot;)</span> <span class="comment">//开启feign监听</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YingyanUploadApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(YingyanUploadApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Controller</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgUploadController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ImgUploadService service;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;img/oss/upload.do&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">upload</span><span class="params">(<span class="meta">@RequestPart</span> MultipartFile file)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> service.upload(file);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Service</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ImgUploadService</span> </span>&#123;</span><br><span class="line">    <span class="function">R <span class="title">upload</span><span class="params">(MultipartFile file)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>图片重命名，防止重名</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">rename</span><span class="params">(String fn)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(StringUtil.isnoEmpty(fn))&#123;</span><br><span class="line">            <span class="keyword">if</span>(fn.length()&gt;<span class="number">30</span>)&#123;</span><br><span class="line">                fn=fn.substring(fn.length()-<span class="number">30</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            fn=System.currentTimeMillis()+<span class="string">&quot;_&quot;</span>+<span class="keyword">new</span> Random().nextInt(<span class="number">1000</span>)+<span class="string">&quot;_&quot;</span>+fn;</span><br><span class="line">            <span class="keyword">return</span> fn;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<ul>
+<li>ServiceImpl</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgUploadServiceImpl</span> <span class="keyword">implements</span> <span class="title">ImgUploadService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">upload</span><span class="params">(MultipartFile file)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!file.isEmpty()) &#123;</span><br><span class="line">            <span class="comment">//判断文件格式</span></span><br><span class="line">            String fName = file.getOriginalFilename();</span><br><span class="line">            System.out.println(<span class="string">&quot;图片上传服务查看上传文件名：&quot;</span>+fName);</span><br><span class="line">            <span class="comment">//限制文件上传的格式为.jpg和.png</span></span><br><span class="line">            <span class="keyword">if</span> (fName.endsWith(<span class="string">&quot;.jpg&quot;</span>) || fName.endsWith(<span class="string">&quot;.png&quot;</span>)) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">//获取上传的内容</span></span><br><span class="line">                    <span class="keyword">byte</span>[] data = file.getBytes();</span><br><span class="line">                    <span class="comment">//调用OSS进行图片内容审核</span></span><br><span class="line">                    <span class="keyword">if</span> (CensorUtil.checkImg(data)) &#123;</span><br><span class="line">                        <span class="comment">//上传的逻辑</span></span><br><span class="line">                        <span class="comment">//重命名、限制长度</span></span><br><span class="line">                        String fn = FileUtil.rename(file.getOriginalFilename());</span><br><span class="line">                        <span class="comment">//oss返回存储地址链接</span></span><br><span class="line">                        String url = OssCore.sendResouce(SystemConstant.OSS_BUCKET, fn,</span><br><span class="line">                                file.getBytes());</span><br><span class="line">                        <span class="keyword">if</span> (StringUtil.isnoEmpty(url)) &#123;</span><br><span class="line">                            System.out.println(<span class="string">&quot;图片返回连接：&quot;</span> + url);</span><br><span class="line">                            <span class="keyword">return</span> R.ok(<span class="string">&quot;上传成功&quot;</span>, url);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> R.fail(<span class="string">&quot;图片不合规，请重新上传&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> R.fail(<span class="string">&quot;图片格式不正确，请重新上传&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R.fail(<span class="string">&quot;oss上传失败，请检查上传的内容&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>限制上传文件大小</li>
+</ul>
+<blockquote>
+<p><a href="">注意：</a>在SpingBoot中，因为自带的tomcat最多支持上传文件为10M，当超过这个大小时，在请求到达接口之前就会报错。</p>
+<p>在application.yml中添加以下信息</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">servlet:</span><br><span class="line"> multipart:</span><br><span class="line">   max-file-size: 10MB #设置单个上传文件的大小</span><br><span class="line">   max-request-size: 50MB #设置请求上传的总大小</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h3 id="5-消费者服务"><a href="#5-消费者服务" class="headerlink" title="5.消费者服务"></a>5.消费者服务</h3><ul>
+<li>启动类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@EnableFeignClients(&quot;com.demo.yingyan&quot;)</span></span><br><span class="line"> <span class="comment">//远程服务调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YingyanApiApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(YingyanApiApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置跨域（随手加的）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@WebFilter(&quot;/*&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CROSFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        HttpServletResponse response=(HttpServletResponse)servletResponse;</span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>,<span class="string">&quot;*&quot;</span>); <span class="comment">//允许跨域</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Credentials&quot;</span>,<span class="string">&quot;true&quot;</span>); <span class="comment">//允许跨域</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Methods&quot;</span>,<span class="string">&quot;GET,POST,PUT,DELETE,OPTIONS&quot;</span>);<span class="comment">//支持跨域的请求方式</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Headers&quot;</span>,<span class="string">&quot;content-type,votertoken&quot;</span>);<span class="comment">// 允许跨域的请求消息头</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Max-Age&quot;</span>,<span class="string">&quot;3600&quot;</span>);</span><br><span class="line">        filterChain.doFilter(servletRequest,response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Controller</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ApiOperation(value = &quot;用户头像上传&quot;)</span></span><br><span class="line"><span class="meta">@PostMapping(&quot;picUpload.do&quot;)</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 多个参数时，MultipartFile必须使用<span class="doctag">@RequestPart</span>注解，不可使用RequestParm注解</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> R <span class="title">picUpload</span><span class="params">(<span class="meta">@RequestPart</span> MultipartFile file, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">//查看上传的文件大小</span></span><br><span class="line">       <span class="keyword">long</span> size = file.getSize();</span><br><span class="line">       System.out.println(size);</span><br><span class="line">    <span class="comment">//利用request获取设置在请求头中的token</span></span><br><span class="line">       String token = request.getHeader(SystemConstant.TOKEN_HEADER);</span><br><span class="line">       <span class="comment">// System.out.println(&quot;消费者：&quot;+token);</span></span><br><span class="line">       <span class="keyword">return</span> userService.picUpload(file, token);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Service</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FeignClient(&quot;yingyanuser&quot;)</span><span class="comment">//绑定提供者的注册中心</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * MultipartFile必须使用<span class="doctag">@RequestPart</span>注解，并给value值设定为file</span></span><br><span class="line"><span class="comment">    * 使用Feign进行文件上传，必须设置媒体类型为MediaType.MULTIPART_FORM_DATA_VALUE    </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@PostMapping(value = &quot;api/user/picUpload.do&quot;,produces = &#123;MediaType.APPLICATION_JSON_UTF8_VALUE&#125;,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)</span></span><br><span class="line">    </span><br><span class="line">    <span class="function">R <span class="title">picUpload</span><span class="params">(<span class="meta">@RequestPart</span> (value = <span class="string">&quot;file&quot;</span>)</span> MultipartFile file, @RequestParam String token)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后先启动提供者服务再启动消费者服务，就可以通过访问消费者接口来调用提供者服务，进而实现文件上传。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Spring Cloud Alibaba</title>
     <url>/2020/08/11/Spring%20Cloud%20Alibaba/</url>
     <content><![CDATA[<h1 id="Spring-Cloud-Alibaba"><a href="#Spring-Cloud-Alibaba" class="headerlink" title="Spring Cloud Alibaba"></a>Spring Cloud Alibaba</h1><a id="more"></a>
@@ -96,86 +365,6 @@
 </ul>
 </blockquote>
 <p>**</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>OSS图片上传+Feign</title>
-    <url>/2020/08/13/OSS%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</url>
-    <content><![CDATA[<h1 id="OSS图片上传-Feign"><a href="#OSS图片上传-Feign" class="headerlink" title="OSS图片上传+Feign"></a>OSS图片上传+Feign</h1><a id="more"></a>
-
-<h3 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1.导入依赖"></a>1.导入依赖</h3><blockquote>
-<p>这里需要阿里云的依赖、图片上传的依赖、openfeign的依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.22<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-</blockquote>
-<h3 id="2-配置OSS"><a href="#2-配置OSS" class="headerlink" title="2.配置OSS"></a>2.配置OSS</h3><blockquote>
-<p>在阿里云上申请<code>accessKeyId</code>和<code>accessKeySecret</code></p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OssCore</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Endpoint以杭州为例，其它Region请按实际情况填写。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String endpoint = <span class="string">&quot;https://oss-cn-beijing.aliyuncs.com&quot;</span>;</span><br><span class="line">    <span class="comment">// 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。</span></span><br><span class="line">    <span class="comment">// 强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录RAM控制台创建RAM账号。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String accessKeyId = <span class="string">&quot;申请的accessKeyId&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String accessKeySecret = <span class="string">&quot;申请的accessKeySecret&quot;</span>;</span><br><span class="line">    <span class="comment">// 创建OSSClient实例。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> OSS ossClient;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">       ossClient= <span class="keyword">new</span> OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建存储空间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createBucket</span><span class="params">(String bname)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 创建CreateBucketRequest对象。</span></span><br><span class="line">        CreateBucketRequest createBucketRequest = <span class="keyword">new</span> CreateBucketRequest(bname);</span><br><span class="line">        <span class="comment">//创建存储空间</span></span><br><span class="line">        ossClient.createBucket(createBucketRequest);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//列出存储空间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Bucket&gt; <span class="title">listBucket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ossClient.listBuckets();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上传 --字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendStr</span><span class="params">(String bname,String objname,String msg)</span></span>&#123;</span><br><span class="line">        <span class="comment">//实现上传</span></span><br><span class="line">        ossClient.putObject(bname,objname,<span class="keyword">new</span> ByteArrayInputStream(msg.getBytes()));</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,objname, DateUtil.comDate(Calendar.YEAR,<span class="number">1</span>)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上传 --字节</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendResouce</span><span class="params">(String bname,String objname,<span class="keyword">byte</span>[] data)</span></span>&#123;</span><br><span class="line">        ossClient.putObject(bname,objname,<span class="keyword">new</span> ByteArrayInputStream(data));</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,objname, DateUtil.comDate(Calendar.YEAR,<span class="number">1</span>)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上传 --</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendResouce</span><span class="params">(String bname, File file)</span></span>&#123;</span><br><span class="line">        ossClient.putObject(bname,file.getName(),file);</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,file.getName(), DateUtil.comDate(Calendar.YEAR,<span class="number">1</span>)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">createURL</span><span class="params">(String bname,String objname,<span class="keyword">int</span> days)</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取访问路径</span></span><br><span class="line">        <span class="keyword">return</span> ossClient.generatePresignedUrl(bname,objname, DateUtil.comDate(Calendar.DAY_OF_MONTH,days)).toString();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//删除</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">delResource</span><span class="params">(String bname,String objname)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            ossClient.deleteObject(bname, objname);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//列举文件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">listResource</span><span class="params">(String bname)</span></span>&#123;</span><br><span class="line">        List&lt;String&gt; files=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        ObjectListing listing=  ossClient.listObjects(bname);</span><br><span class="line">        <span class="keyword">for</span> (OSSObjectSummary objectSummary : listing.getObjectSummaries()) &#123;</span><br><span class="line">           files.add(objectSummary.getKey());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> files;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-创建OSS存储空间"><a href="#3-创建OSS存储空间" class="headerlink" title="3.创建OSS存储空间"></a>3.创建OSS存储空间</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Oss_Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OssCore.createBucket(<span class="string">&quot;yingy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-提供者服务"><a href="#4-提供者服务" class="headerlink" title="4.提供者服务"></a>4.提供者服务</h3><ul>
-<li>配置启动类</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span> <span class="comment">//发布服务</span></span><br><span class="line"><span class="meta">@EnableFeignClients(&quot;com.demo.yingyan&quot;)</span> <span class="comment">//开启feign监听</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YingyanUploadApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(YingyanUploadApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Controller</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgUploadController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ImgUploadService service;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;img/oss/upload.do&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">upload</span><span class="params">(<span class="meta">@RequestPart</span> MultipartFile file)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> service.upload(file);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Service</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ImgUploadService</span> </span>&#123;</span><br><span class="line">    <span class="function">R <span class="title">upload</span><span class="params">(MultipartFile file)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>图片重命名，防止重名</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">rename</span><span class="params">(String fn)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(StringUtil.isnoEmpty(fn))&#123;</span><br><span class="line">            <span class="keyword">if</span>(fn.length()&gt;<span class="number">30</span>)&#123;</span><br><span class="line">                fn=fn.substring(fn.length()-<span class="number">30</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            fn=System.currentTimeMillis()+<span class="string">&quot;_&quot;</span>+<span class="keyword">new</span> Random().nextInt(<span class="number">1000</span>)+<span class="string">&quot;_&quot;</span>+fn;</span><br><span class="line">            <span class="keyword">return</span> fn;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-<ul>
-<li>ServiceImpl</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgUploadServiceImpl</span> <span class="keyword">implements</span> <span class="title">ImgUploadService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">upload</span><span class="params">(MultipartFile file)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!file.isEmpty()) &#123;</span><br><span class="line">            <span class="comment">//判断文件格式</span></span><br><span class="line">            String fName = file.getOriginalFilename();</span><br><span class="line">            System.out.println(<span class="string">&quot;图片上传服务查看上传文件名：&quot;</span>+fName);</span><br><span class="line">            <span class="comment">//限制文件上传的格式为.jpg和.png</span></span><br><span class="line">            <span class="keyword">if</span> (fName.endsWith(<span class="string">&quot;.jpg&quot;</span>) || fName.endsWith(<span class="string">&quot;.png&quot;</span>)) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">//获取上传的内容</span></span><br><span class="line">                    <span class="keyword">byte</span>[] data = file.getBytes();</span><br><span class="line">                    <span class="comment">//调用OSS进行图片内容审核</span></span><br><span class="line">                    <span class="keyword">if</span> (CensorUtil.checkImg(data)) &#123;</span><br><span class="line">                        <span class="comment">//上传的逻辑</span></span><br><span class="line">                        <span class="comment">//重命名、限制长度</span></span><br><span class="line">                        String fn = FileUtil.rename(file.getOriginalFilename());</span><br><span class="line">                        <span class="comment">//oss返回存储地址链接</span></span><br><span class="line">                        String url = OssCore.sendResouce(SystemConstant.OSS_BUCKET, fn,</span><br><span class="line">                                file.getBytes());</span><br><span class="line">                        <span class="keyword">if</span> (StringUtil.isnoEmpty(url)) &#123;</span><br><span class="line">                            System.out.println(<span class="string">&quot;图片返回连接：&quot;</span> + url);</span><br><span class="line">                            <span class="keyword">return</span> R.ok(<span class="string">&quot;上传成功&quot;</span>, url);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> R.fail(<span class="string">&quot;图片不合规，请重新上传&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> R.fail(<span class="string">&quot;图片格式不正确，请重新上传&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R.fail(<span class="string">&quot;oss上传失败，请检查上传的内容&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>限制上传文件大小</li>
-</ul>
-<blockquote>
-<p><a href="">注意：</a>在SpingBoot中，因为自带的tomcat最多支持上传文件为10M，当超过这个大小时，在请求到达接口之前就会报错。</p>
-<p>在application.yml中添加以下信息</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">servlet:</span><br><span class="line"> multipart:</span><br><span class="line">   max-file-size: 10MB #设置单个上传文件的大小</span><br><span class="line">   max-request-size: 50MB #设置请求上传的总大小</span><br></pre></td></tr></table></figure>
-
-
-</blockquote>
-<h3 id="5-消费者服务"><a href="#5-消费者服务" class="headerlink" title="5.消费者服务"></a>5.消费者服务</h3><ul>
-<li>启动类</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@EnableFeignClients(&quot;com.demo.yingyan&quot;)</span></span><br><span class="line"> <span class="comment">//远程服务调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YingyanApiApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(YingyanApiApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>设置跨域（随手加的）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@WebFilter(&quot;/*&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CROSFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        HttpServletResponse response=(HttpServletResponse)servletResponse;</span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>,<span class="string">&quot;*&quot;</span>); <span class="comment">//允许跨域</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Credentials&quot;</span>,<span class="string">&quot;true&quot;</span>); <span class="comment">//允许跨域</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Methods&quot;</span>,<span class="string">&quot;GET,POST,PUT,DELETE,OPTIONS&quot;</span>);<span class="comment">//支持跨域的请求方式</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Allow-Headers&quot;</span>,<span class="string">&quot;content-type,votertoken&quot;</span>);<span class="comment">// 允许跨域的请求消息头</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Access-Control-Max-Age&quot;</span>,<span class="string">&quot;3600&quot;</span>);</span><br><span class="line">        filterChain.doFilter(servletRequest,response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Controller</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ApiOperation(value = &quot;用户头像上传&quot;)</span></span><br><span class="line"><span class="meta">@PostMapping(&quot;picUpload.do&quot;)</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 多个参数时，MultipartFile必须使用<span class="doctag">@RequestPart</span>注解，不可使用RequestParm注解</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> R <span class="title">picUpload</span><span class="params">(<span class="meta">@RequestPart</span> MultipartFile file, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">//查看上传的文件大小</span></span><br><span class="line">       <span class="keyword">long</span> size = file.getSize();</span><br><span class="line">       System.out.println(size);</span><br><span class="line">    <span class="comment">//利用request获取设置在请求头中的token</span></span><br><span class="line">       String token = request.getHeader(SystemConstant.TOKEN_HEADER);</span><br><span class="line">       <span class="comment">// System.out.println(&quot;消费者：&quot;+token);</span></span><br><span class="line">       <span class="keyword">return</span> userService.picUpload(file, token);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Service</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FeignClient(&quot;yingyanuser&quot;)</span><span class="comment">//绑定提供者的注册中心</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * MultipartFile必须使用<span class="doctag">@RequestPart</span>注解，并给value值设定为file</span></span><br><span class="line"><span class="comment">    * 使用Feign进行文件上传，必须设置媒体类型为MediaType.MULTIPART_FORM_DATA_VALUE    </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@PostMapping(value = &quot;api/user/picUpload.do&quot;,produces = &#123;MediaType.APPLICATION_JSON_UTF8_VALUE&#125;,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)</span></span><br><span class="line">    </span><br><span class="line">    <span class="function">R <span class="title">picUpload</span><span class="params">(<span class="meta">@RequestPart</span> (value = <span class="string">&quot;file&quot;</span>)</span> MultipartFile file, @RequestParam String token)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>然后先启动提供者服务再启动消费者服务，就可以通过访问消费者接口来调用提供者服务，进而实现文件上传。</p>
 ]]></content>
   </entry>
   <entry>
@@ -349,6 +538,1098 @@
 
 <p>说明：</p>
 <p><code>url</code>：视频链接</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据库触发器</title>
+    <url>/2020/08/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%A6%E5%8F%91%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="MySQL-Trigger"><a href="#MySQL-Trigger" class="headerlink" title="MySQL Trigger"></a>MySQL Trigger</h1><a id="more"></a>
+
+<h3 id="1-Trigger-简介"><a href="#1-Trigger-简介" class="headerlink" title="1. Trigger 简介"></a>1. Trigger 简介</h3><p>  <strong>【概念】</strong><br>  它是与表有关的数据库对象，在满足定义条件时触发，并执行触发器中定义的语句集合。<br>  这种特性可以协助应用在数据库端<code>确保数据的完整性</code>。</p>
+<p> <strong>【基本语法】</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TRIGGER trigger_name trigger_time trigger_event ON tb_name FOR EACH ROW trigger_stmt</span><br><span class="line">  </span><br><span class="line"># @trigger_name：触发器名称，自定义</span><br><span class="line"># @tirgger_time：触发时机，取值 BEFORE、AFTER</span><br><span class="line"># @trigger_event：触发事件，取值 INSERT、DELETE、UPDATE</span><br><span class="line"># @tb_name：表示建立触发器的表名，就是在哪张表上建立触发器</span><br><span class="line"># @trigger_stmt：触发器的程序体，可以是一条SQL语句或者是用 BEGIN 和 END 包含的多条语句</span><br></pre></td></tr></table></figure>
+
+<p>  所以 MySQL 可以创建以下 6 种触发器：<br>  BEFORE INSERT,  BEFORE DELETE,  BEFORE UPDATE<br>  AFTER INSERT,  AFTER DELETE,  AFTER UPDATE</p>
+<p> <strong>【包含多个执行语句语法】</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELIMITER $</span><br><span class="line">CREATE TRIGGER 触发器名 触发时机 触发事件 ON 表名 FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    执行语句列表;</span><br><span class="line">    ...;</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> SQL 语句分隔符问题：<br> 一般情况下，mysql默认是以 ; 作为结束执行语句，与触发器中需要的分行有冲突。<br> 为解决此问题可用 <code>DELIMITER</code> 关键字，如：DELIMITER #，可以将结束符号变成 #<br> 当触发器创建完成后，可以用 DELIMITER ; 来将结束符号变成 ;</p>
+</blockquote>
+<p> <strong>【Trigger CRUD】</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 增 Create</span><br><span class="line">CREATE TRIGGER 触发器名 触发时机 触发事件 ON 表名 FOR EACH ROW 触发器程序体</span><br><span class="line"># 查 Retrieve</span><br><span class="line">SHOW TRIGGERS</span><br><span class="line"># 改 Update</span><br><span class="line">ALTER TRIGGER 触发器名 触发时机 触发事件 ON 表名 FOR EACH ROW 触发器程序体</span><br><span class="line"># 删 Delete</span><br><span class="line">DROP TRIGGER trigger_name</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>【NEW 和 OLD】</strong></p>
+<ul>
+<li><code>NEW</code> 对象：SQL语句执行之前的记录对象</li>
+<li><code>OLD</code> 对象：SQL语句执行之后的记录对象</li>
+</ul>
+<p><strong>【基本使用】</strong></p>
+<ul>
+<li>当需要在操作 user 表的时候做独立的<code>数据库操作记录</code>，并备份 user 表的数据 —— Demo1</li>
+<li>当 user 表中发生了 DML 行为，那么就会<code>修改关联表中的某个字段</code>，比如数量 —— Demo2</li>
+<li>…</li>
+</ul>
+<h3 id="2-Trigger-Demo1-For-Log"><a href="#2-Trigger-Demo1-For-Log" class="headerlink" title="2. Trigger Demo1 For Log"></a>2. Trigger Demo1 For Log</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 创建 user 表：id 主键,自增；name 不允许空</span><br><span class="line">DROP TABLE IF EXISTS &#96;user&#96;;</span><br><span class="line">CREATE TABLE &#96;user&#96;(</span><br><span class="line">  &#96;id&#96; INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">  &#96;name&#96; VARCHAR(20) NOT NULL</span><br><span class="line">) ENGINE&#x3D;INNODB DEFAULT CHARSET&#x3D;utf8;</span><br><span class="line"></span><br><span class="line"># 插入测试数据</span><br><span class="line">INSERT INTO &#96;user&#96;(NAME) VALUES(&#39;jack&#39;);</span><br><span class="line">INSERT INTO &#96;user&#96;(NAME) VALUES(&#39;rose&#39;);</span><br><span class="line">INSERT INTO &#96;user&#96;(NAME) VALUES(&#39;tom&#39;);</span><br><span class="line">INSERT INTO &#96;user&#96;(NAME) VALUES(&#39;jerry&#39;);</span><br><span class="line"></span><br><span class="line">SELECT &#96;id&#96;,&#96;name&#96; FROM &#96;user&#96;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建 user 表对应的备份表 user_log，记录 user 表中所有 DML 操作被触发器语句触发而记录的内容</span><br><span class="line">DROP TABLE IF EXISTS &#96;user_log&#96;;</span><br><span class="line">CREATE TABLE &#96;user_log&#96; (</span><br><span class="line">  &#96;id&#96; INT(10) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  &#96;create_time&#96; TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, # 该字段数据有变化的时候自动更新该时间</span><br><span class="line">  &#96;current_user&#96; VARCHAR(20) DEFAULT NULL,</span><br><span class="line">  &#96;operation&#96; VARCHAR(64) DEFAULT NULL,</span><br><span class="line">  &#96;name&#96; VARCHAR(64) DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (&#96;id&#96;)</span><br><span class="line">) ENGINE&#x3D;INNODB DEFAULT CHARSET&#x3D;utf8;</span><br><span class="line"></span><br><span class="line">SELECT * FROM &#96;user_log&#96;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># -- 【创建 INSERT 触发器】 -- #</span><br><span class="line">DROP TRIGGER IF EXISTS &#96;user_log_insert&#96;;</span><br><span class="line">DELIMITER $  # 设置 sql 语句的结束符为 $</span><br><span class="line">CREATE TRIGGER user_log_insert AFTER INSERT ON &#96;user&#96; FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">  DECLARE s1 VARCHAR(64) CHARACTER SET utf8; # 语句①：定义变量 s1，后面发现中文字符编码出现乱码时设置字符集</span><br><span class="line">  SET s1 &#x3D; &quot;新增&quot;;  # 语句②：为 s1 赋值</span><br><span class="line">  INSERT INTO user_log(&#96;current_user&#96;, &#96;operation&#96;, &#96;name&#96;) VALUES(USER(), s1, NEW.name); # 语句③：NEW 关键字，代表即将插入 user 表的数据</span><br><span class="line">END $  # 此时 CREATE 语句到此为一整句的结束</span><br><span class="line">DELIMITER ;  # 恢复 sql 语句的结束符为默认的分号 ;</span><br><span class="line"></span><br><span class="line"># 显示所有触发器</span><br><span class="line">SHOW TRIGGERS;</span><br><span class="line"></span><br><span class="line"># 插入一条数据，并查询备份表，测试触发器是否产生记录</span><br><span class="line">INSERT INTO &#96;user&#96; (NAME) VALUES (&#39;周杰伦&#39;);</span><br><span class="line">SELECT * FROM &#96;user&#96;;</span><br><span class="line">SELECT * FROM &#96;user_log&#96;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># -- 【创建 DELETE 触发器】 -- #</span><br><span class="line">DROP TRIGGER IF EXISTS &#96;user_log_delete&#96;;</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE TRIGGER user_log_delete AFTER DELETE ON &#96;user&#96; FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">  DECLARE s1 VARCHAR(64) CHARACTER SET utf8; # 语句①：定义变量 s1，后面发现中文字符编码出现乱码时设置字符集</span><br><span class="line">  SET s1 &#x3D; &quot;删除&quot;;  # 语句②：为 s1 赋值</span><br><span class="line">  INSERT INTO user_log(&#96;current_user&#96;, &#96;operation&#96;, &#96;name&#96;) VALUES(USER(), s1, OLD.name); # 语句③：OLD 关键字，代表未删除之前 user 表的数据</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"># 显示所有触发器</span><br><span class="line">SHOW TRIGGERS;</span><br><span class="line"></span><br><span class="line"># 删除一条数据，并查询备份表，测试触发器是否产生记录</span><br><span class="line">DELETE FROM &#96;user&#96; WHERE &#96;name&#96;&#x3D;&#39;周杰伦&#39;;</span><br><span class="line">SELECT * FROM &#96;user&#96;;</span><br><span class="line">SELECT * FROM &#96;user_log&#96;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># -- 【创建 UPDATE 触发器】 -- #</span><br><span class="line">DROP TRIGGER IF EXISTS &#96;user_log_update&#96;;</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE TRIGGER user_log_update AFTER UPDATE ON &#96;user&#96; FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">  DECLARE s1 VARCHAR(64) CHARACTER SET utf8;</span><br><span class="line">  SET s1 &#x3D; &quot;更新&quot;;</span><br><span class="line">  INSERT INTO user_log(&#96;current_user&#96;, &#96;operation&#96;, &#96;name&#96;) VALUES(USER(), s1, CONCAT(OLD.name, &#39; -&gt; &#39;, NEW.name));</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"># 显示所有触发器</span><br><span class="line">SHOW TRIGGERS;</span><br><span class="line"></span><br><span class="line"># 更新一条数据，并查询备份表，测试触发器是否产生记录</span><br><span class="line">UPDATE &#96;user&#96; SET NAME&#x3D;&#39;jay&#39; WHERE id&#x3D;1;</span><br><span class="line">SELECT * FROM &#96;user&#96;;</span><br><span class="line">SELECT * FROM &#96;user_log&#96;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-Trigger-Demo2-For-Data"><a href="#3-Trigger-Demo2-For-Data" class="headerlink" title="3. Trigger Demo2 For Data"></a>3. Trigger Demo2 For Data</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 创建班级表</span><br><span class="line">DROP TABLE IF EXISTS &#96;class&#96;;</span><br><span class="line">CREATE TABLE &#96;class&#96;(</span><br><span class="line">    &#96;cid&#96; INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    &#96;cname&#96; VARCHAR(30) DEFAULT NULL,</span><br><span class="line">    &#96;num&#96; INT DEFAULT 0</span><br><span class="line">) ENGINE&#x3D;INNODB DEFAULT CHARSET&#x3D;utf8;</span><br><span class="line">    </span><br><span class="line">INSERT INTO class VALUES(1,&quot;小班&quot;,0);</span><br><span class="line">INSERT INTO class VALUES(2,&quot;中班&quot;,0);</span><br><span class="line">INSERT INTO class VALUES(3,&quot;大班&quot;,0);</span><br><span class="line"></span><br><span class="line">SELECT * FROM class;</span><br><span class="line"></span><br><span class="line"># 创建学生表</span><br><span class="line">DROP TABLE IF EXISTS &#96;student&#96;;</span><br><span class="line">CREATE TABLE &#96;student&#96;(</span><br><span class="line">    &#96;sid&#96; INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    &#96;sname&#96; VARCHAR(30) DEFAULT NULL,</span><br><span class="line">    &#96;age&#96; INT DEFAULT 0,</span><br><span class="line">    &#96;cno&#96; INT DEFAULT 0</span><br><span class="line">) ENGINE&#x3D;INNODB DEFAULT CHARSET&#x3D;utf8;</span><br><span class="line"></span><br><span class="line">SELECT * FROM student;</span><br><span class="line"></span><br><span class="line"># 学生表添加一条学生记录, 班级表字段 num 加 1</span><br><span class="line">DROP TRIGGER IF EXISTS &#96;trigger_add&#96;;</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE TRIGGER trigger_add AFTER INSERT ON student FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">  UPDATE class SET num &#x3D; num + 1 WHERE cid &#x3D; NEW.cno;</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">SHOW TRIGGERS;</span><br><span class="line"></span><br><span class="line">INSERT INTO student VALUES(1, &quot;小三&quot;, 3, 1);</span><br><span class="line">SELECT * FROM class;</span><br><span class="line">SELECT * FROM student;</span><br><span class="line">INSERT INTO student VALUES(2, &quot;小四&quot;, 4, 1);</span><br><span class="line">INSERT INTO student VALUES(3, &quot;小五&quot;, 5, 1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 学生表删除一条学生记录, 班级表字段 num 减1</span><br><span class="line">DROP TRIGGER IF EXISTS &#96;trigger_sub&#96;;</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE TRIGGER trigger_sub AFTER DELETE ON student FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">  UPDATE class SET num &#x3D; num - 1 WHERE cid &#x3D; OLD.cno;</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">SHOW TRIGGERS;</span><br><span class="line"></span><br><span class="line">DELETE FROM student WHERE sname &#x3D; &quot;小三&quot;;</span><br><span class="line">SELECT * FROM class;</span><br><span class="line">SELECT * FROM student;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-Trigger-总结"><a href="#4-Trigger-总结" class="headerlink" title="4. Trigger 总结"></a>4. Trigger 总结</h3><p>总结：<br>触发器是基于行触发的，所以删除、新增或者修改操作可能都会激活触发器，所以不要编写过于复杂的触发器，也不要增加过得的触发器，这样会对数据的插入、修改或者删除带来比较严重的影响，同时也会带来可移植性差的后果，所以在设计触发器的时候一定要有所考虑。</p>
+<p>触发器是一种特殊的存储过程，它在插入，删除或修改特定表中的数据时触发执行，它比数据库本身标准的功能有更精细和更复杂的数据控制能力。</p>
+<p>数据库触发器有以下的作用：</p>
+<ol>
+<li>安全性。可以基于数据库的值使用户具有操作数据库的某种权利。</li>
+</ol>
+<p>可以基于时间限制用户的操作，例如不允许下班后和节假日修改数据库数据。</p>
+<p>可以基于数据库中的数据限制用户的操作，例如不允许股票的价格的升幅一次超过10%。</p>
+<ol start="2">
+<li>审计。可以跟踪用户对数据库的操作。   </li>
+</ol>
+<p>审计用户操作数据库的语句。</p>
+<p>把用户对数据库的更新写入审计表。</p>
+<ol start="3">
+<li>实现复杂的数据完整性规则</li>
+</ol>
+<p>实现非标准的数据完整性检查和约束。触发器可产生比规则更为复杂的限制。与规则不同，触发器可以引用列或数据库对象。例如，触发器可回退任何企图吃进超过自己保证金的期货。</p>
+<p>提供可变的缺省值。</p>
+<ol start="4">
+<li>实现复杂的非标准的数据库相关完整性规则。触发器可以对数据库中相关的表进行连环更新。例如，在auths表author_code列上的删除触发器可导致相应删除在其它表中的与之匹配的行。</li>
+</ol>
+<p>在修改或删除时级联修改或删除其它表中的与之匹配的行。</p>
+<p>在修改或删除时把其它表中的与之匹配的行设成NULL值。</p>
+<p>在修改或删除时把其它表中的与之匹配的行级联设成缺省值。</p>
+<p>触发器能够拒绝或回退那些破坏相关完整性的变化，取消试图进行数据更新的事务。当插入一个与其主健不匹配的外部键时，这种触发器会起作用。例如，可以在books.author_code 列上生成一个插入触发器，如果新值与auths.author_code列中的某值不匹配时，插入被回退。</p>
+<ol start="5">
+<li><p>同步实时地复制表中的数据。</p>
+</li>
+<li><p>自动计算数据值，如果数据的值达到了一定的要求，则进行特定的处理。例如，如果公司的帐号上的资金低于5万元则立即给财务人员发送警告数据。</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Git入门</title>
+    <url>/2020/08/13/Git/</url>
+    <content><![CDATA[<h1 id="Git入门"><a href="#Git入门" class="headerlink" title="Git入门"></a>Git入门</h1><a id="more"></a>
+
+
+
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/logo.jpg" alt="logo"> </p>
+<blockquote>
+<p>Version：9.0.2</p>
+</blockquote>
+<p>[TOC]</p>
+<h3 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h3><hr>
+<blockquote>
+<ul>
+<li><p>在单人开发过程中，需要进行版本管理，以利于开发进度的控制。</p>
+</li>
+<li><p>在多人开发过程中，不仅需要版本管理，还需要进行多人协同控制。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="二、介绍"><a href="#二、介绍" class="headerlink" title="二、介绍"></a>二、介绍</h3><hr>
+<blockquote>
+<ul>
+<li>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</li>
+<li>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</li>
+<li>官网：<a href="https://git-scm.com/">https://git-scm.com/</a></li>
+</ul>
+</blockquote>
+<h3 id="三、Git安装"><a href="#三、Git安装" class="headerlink" title="三、Git安装"></a>三、Git安装</h3><hr>
+<h4 id="3-1-下载Git"><a href="#3-1-下载Git" class="headerlink" title="3.1 下载Git"></a>3.1 下载Git</h4><blockquote>
+<p>下载Git <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">下载git</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/install1.jpg" alt="install1"></td>
+</tr>
+</tbody></table>
+<h4 id="3-2-安装"><a href="#3-2-安装" class="headerlink" title="3.2 安装"></a>3.2 安装</h4><blockquote>
+<p>安装，除了安装位置外，其他一直下一步即可</p>
+</blockquote>
+<h4 id="3-3-基本配置"><a href="#3-3-基本配置" class="headerlink" title="3.3 基本配置"></a>3.3 基本配置</h4><blockquote>
+<ul>
+<li><p>安装后，打开cmd ，自报家门</p>
+</li>
+<li><p>如下信息会在提交代码时要使用，记录在你的每次提交中。以后才知道哪次提交是谁做的。</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;  #用户名</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;  #邮箱</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看信息</span></span><br><span class="line">git config -l </span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-测试"><a href="#3-4-测试" class="headerlink" title="3.4 测试"></a>3.4 测试</h4><blockquote>
+<p>测试：cmd中执行 ,查看git版本</p>
+</blockquote>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git version  </span><br></pre></td></tr></table></figure>
+
+<h3 id="四、架构"><a href="#四、架构" class="headerlink" title="四、架构"></a>四、架构</h3><hr>
+<blockquote>
+<ul>
+<li><p>版本库：工作区中有一个隐藏目录 <code>.git</code>，这个目录不属于工作区，而是git的 <code>版本库</code>，是git管理的所有内容 </p>
+</li>
+<li><p>暂存区：版本库中包含一个临时区域，保存下一步要提交的文件。</p>
+</li>
+<li><p>分支：版本库中包含若干分支，提交的文件存储在分支中</p>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">架构图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%9A%82%E5%AD%98%E5%8C%BA.jpg" alt="暂存区"></td>
+</tr>
+</tbody></table>
+<h3 id="五、仓库"><a href="#五、仓库" class="headerlink" title="五、仓库"></a>五、仓库</h3><hr>
+<blockquote>
+<p>对应的就是一个<a href="">目录</a>，这个目录中的所有文件被git管理起来。</p>
+<p>以后会将一个<a href="">项目的根目录</a>，作为仓库。</p>
+<p>仓库中的每个文件的改动 都由git跟踪。</p>
+</blockquote>
+<h4 id="5-1-新建仓库"><a href="#5-1-新建仓库" class="headerlink" title="5.1 新建仓库"></a>5.1 新建仓库</h4><blockquote>
+<p>选择一个目录，执行指令：<a href="">git init</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">新建仓库</th>
+<th align="center">仓库目录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.jpg" alt="新建仓库"></td>
+<td align="center"><img src="Pictures/%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%932.jpg" alt="新建仓库2"></td>
+</tr>
+</tbody></table>
+<h4 id="5-2-工作区"><a href="#5-2-工作区" class="headerlink" title="5.2 工作区"></a>5.2 工作区</h4><blockquote>
+<p>执行<a href="">git init</a>的目录即为工作区，如上例，<a href="">D:\repo1</a>目录即为工作区【不包含<a href="">.git</a>目录】</p>
+</blockquote>
+<blockquote>
+<p>所有文件，都首先在工作区新建，然后可以存入仓库(版本库)，进行版本控制。</p>
+</blockquote>
+<h4 id="5-3-暂存区"><a href="#5-3-暂存区" class="headerlink" title="5.3 暂存区"></a>5.3 暂存区</h4><blockquote>
+<p>暂存区也在 <a href="">.git</a> 目录内，工作区的文件进入仓库时，要先进入暂存区。</p>
+</blockquote>
+<h4 id="5-4-分支"><a href="#5-4-分支" class="headerlink" title="5.4 分支"></a>5.4 分支</h4><blockquote>
+<p>版本控制，简单说，就是记录文件的诸多版本，分支就是这些版本的最终记录位置。</p>
+</blockquote>
+<h3 id="六、基本操作"><a href="#六、基本操作" class="headerlink" title="六、基本操作"></a>六、基本操作</h3><hr>
+<h4 id="6-1-查看仓库状态"><a href="#6-1-查看仓库状态" class="headerlink" title="6.1 查看仓库状态"></a>6.1 查看仓库状态</h4><blockquote>
+<p>执行 <a href="">git  status</a> 可以看到工作区中文件的状态</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">未记录过的文件，是未跟踪状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%811.jpg" alt="查看状态1"></td>
+</tr>
+</tbody></table>
+<h4 id="6-2-暂存文件"><a href="#6-2-暂存文件" class="headerlink" title="6.2 暂存文件"></a>6.2 暂存文件</h4><blockquote>
+<p>执行 <a href="">git add .</a> 将工作区中的文件全部<a href="">存入暂存区</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">将工作区中的文件存入暂存区</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%9A%82%E5%AD%98%E6%96%87%E4%BB%B6.jpg" alt="暂存文件"></td>
+</tr>
+</tbody></table>
+<h4 id="6-3-提交文件"><a href="#6-3-提交文件" class="headerlink" title="6.3 提交文件"></a>6.3 提交文件</h4><blockquote>
+<p>执行 <a href="">git commit -m “这里写提交的描述信息”</a> 作用是将暂存区的文件存入分支，形成一个版本</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">提交文件，形成一个版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6.jpg" alt="提交文件"></td>
+</tr>
+</tbody></table>
+<h3 id="七、远程仓库"><a href="#七、远程仓库" class="headerlink" title="七、远程仓库"></a>七、远程仓库</h3><hr>
+<blockquote>
+<p>第5章中的仓库，其实是本地仓库。</p>
+<p>当多人协同开发时，每人都在自己的本地仓库维护版本。</p>
+<p>但很重要的一点是，多人之间需要共享代码、合并代码，此时就需要一个<a href="">远程仓库</a>。</p>
+</blockquote>
+<h4 id="7-1-远程仓库工作模式"><a href="#7-1-远程仓库工作模式" class="headerlink" title="7.1 远程仓库工作模式"></a>7.1 远程仓库工作模式</h4><table>
+<thead>
+<tr>
+<th align="center">远程仓库工作模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.jpg" alt="远程仓库"></td>
+</tr>
+</tbody></table>
+<h4 id="7-2-远程仓库选型"><a href="#7-2-远程仓库选型" class="headerlink" title="7.2 远程仓库选型"></a>7.2 远程仓库选型</h4><blockquote>
+<ul>
+<li><p>有很多远程仓库可以选择，比如 github(<a href="https://github.com/">https://github.com/</a>),码云(<a href="https://gitee.com/">https://gitee.com/</a>)；</p>
+<p> 此两种可以注册自己测试使用，但如果是商业项目，需要更多支持需要付费。</p>
+</li>
+<li><p>公司内部也可以有自己构建的远程仓库(<a href="http://qianfeng.qfjava.cn:8087/users/sign_in">http://qianfeng.qfjava.cn:8087/users/sign_in</a>)。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="7-3-基本操作"><a href="#7-3-基本操作" class="headerlink" title="7.3 基本操作"></a>7.3 基本操作</h4><blockquote>
+<p>每个开发人员，在面对远程仓库时，会面临的一些基本操作。</p>
+</blockquote>
+<h5 id="7-3-1-注册git服务器账号"><a href="#7-3-1-注册git服务器账号" class="headerlink" title="7.3.1 注册git服务器账号"></a>7.3.1 注册git服务器账号</h5><blockquote>
+<p>在 <a href="https://gitee.com/">码云</a> 注册账号，并登录。</p>
+<p>进入公司后，很可能会使用公司自己搭建的git服务器，则账号向领导索要即可</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">点击注册，完成注册过程</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E7%A0%81%E4%BA%91%E6%B3%A8%E5%86%8C.jpg" alt="码云注册"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">登录后显示主页</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E7%A0%81%E4%BA%91%E7%99%BB%E5%BD%95.jpg" alt="码云登录"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-2-新建远程仓库"><a href="#7-3-2-新建远程仓库" class="headerlink" title="7.3.2 新建远程仓库"></a>7.3.2 新建远程仓库</h5><table>
+<thead>
+<tr>
+<th align="center">创建远程私有仓库-01</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%931.jpg" alt="创建远程仓库1"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">创建远程私有仓库-02</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%932.jpg" alt="创建远程仓库2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">创建远程私有仓库-03</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%933.jpg" alt="创建远程仓库3"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-3-本地关联远程仓库"><a href="#7-3-3-本地关联远程仓库" class="headerlink" title="7.3.3 本地关联远程仓库"></a>7.3.3 本地关联远程仓库</h5><blockquote>
+<p>本文档中选用仓库的 https协议的地址，将此地址关联到本地git中</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">如此后，本地即可用“origin” 代指远程仓库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.jpg" alt="关联远程仓库"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-4-推送文件到远程仓库"><a href="#7-3-4-推送文件到远程仓库" class="headerlink" title="7.3.4 推送文件到远程仓库"></a>7.3.4 推送文件到远程仓库</h5><blockquote>
+<p>将本地仓库中已经commit的内容push到远程仓库，以共享自己的代码。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">push</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/push%E5%88%B0%E8%BF%9C%E7%A8%8B.jpg" alt="push到远程"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">输入凭证，如此码云才能接受此次上传的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/push%E5%88%B0%E8%BF%9C%E7%A8%8B_%E8%BE%93%E5%85%A5%E5%87%AD%E8%AF%81.jpg" alt="push到远程_输入凭证"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-5-克隆远程仓库"><a href="#7-3-5-克隆远程仓库" class="headerlink" title="7.3.5 克隆远程仓库"></a>7.3.5 克隆远程仓库</h5><blockquote>
+<p>如果仓库已经由别人创建完毕，我们需要其中的内容，则可以通过 <a href="">git clone</a> 将其复制到本地。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">新建目录“repo2”，然后在其中执行 git clone</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clone%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.jpg" alt="clone远程仓库"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">远程仓库，复制到本地，并自动初始化为一个本地仓库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clone%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%932.jpg" alt="clone远程仓库2"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-6-代码共享"><a href="#7-3-6-代码共享" class="headerlink" title="7.3.6 代码共享"></a>7.3.6 代码共享</h5><blockquote>
+<p>多人协同开发时，写好代码的<a href="">git push</a> 上传到远程仓库；需要代码的 <a href="">git pull</a> 拉取代码即可。 </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">有人再次将本地仓库内容，上传到了远程仓库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/pull%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%931.jpg" alt="pull远程仓库1"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">重点：此时另一方如果想获得更新，则需要做一次拉取 git pull</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/pull%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%932.jpg" alt="pull远程仓库2"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-7-命令汇总"><a href="#7-3-7-命令汇总" class="headerlink" title="7.3.7 命令汇总"></a>7.3.7 命令汇总</h5><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git   remote   add  标识名(master)  远程地址</td>
+<td>本地关联远程仓库</td>
+</tr>
+<tr>
+<td>git   push  标识名  master</td>
+<td>将本地仓库内容上传到远程仓库</td>
+</tr>
+<tr>
+<td>git   pull  标识名   master</td>
+<td>从远程仓库下载内容到本地仓库</td>
+</tr>
+<tr>
+<td>git   clone  远程地址</td>
+<td>将远程仓库复制到本地，并自动形成一个本地仓库</td>
+</tr>
+</tbody></table>
+<h3 id="八、分支"><a href="#八、分支" class="headerlink" title="八、分支"></a>八、分支</h3><hr>
+<h4 id="8-1-分支简介"><a href="#8-1-分支简介" class="headerlink" title="8.1 分支简介"></a>8.1 分支简介</h4><blockquote>
+<ul>
+<li><p>分支，是一个个版本最终存储的位置。</p>
+</li>
+<li><p>分支，就是一条时间线，每次<a href="">git commit</a>形成一个个版本，一个个版本依次存储在分支的一个个提交点上。</p>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">分支由多个提交点组成，分支上会有一个指针，默认总是指向最新的提交点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%88%86%E6%94%AF%E5%9B%BE%E4%BE%8B1.jpg" alt="分支图例1"></td>
+</tr>
+</tbody></table>
+<h4 id="8-2-分支操作"><a href="#8-2-分支操作" class="headerlink" title="8.2 分支操作"></a>8.2 分支操作</h4><h5 id="8-2-1-查看分支"><a href="#8-2-1-查看分支" class="headerlink" title="8.2.1 查看分支"></a>8.2.1 查看分支</h5><blockquote>
+<ul>
+<li><p>查看当前仓库的分支 <a href="">git branch</a></p>
+</li>
+<li><p>仓库中默认只有 master 分支</p>
+</li>
+<li><p>执行<a href="">git commit</a>时，默认是在master分支上保存版本。</p>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">默认只有master分支</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF-master.jpg" alt="查看分支-master"></td>
+</tr>
+</tbody></table>
+<h5 id="8-2-2-创建分支"><a href="#8-2-2-创建分支" class="headerlink" title="8.2.2 创建分支"></a>8.2.2 创建分支</h5><blockquote>
+<ul>
+<li><p>在商业项目开发过程中，我们不会轻易的在<a href="">master</a>分支上做操作。</p>
+</li>
+<li><p>我们会新建一个<a href="">开发用的分支</a>，在此分支上做版本的记录。</p>
+<p>当代码确实没有问题时，才会将开发分支上成熟的代码版本添加到<a href="">master</a>分支上。</p>
+</li>
+<li><p>保证开发过程中，可以及时记录版本，又保证<a href="">master</a>分支上每个提交点都是稳健版本。</p>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">创建分支</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF.jpg" alt="新建分支"></td>
+</tr>
+</tbody></table>
+<h5 id="8-2-3-切换分支"><a href="#8-2-3-切换分支" class="headerlink" title="8.2.3 切换分支"></a>8.2.3 切换分支</h5><blockquote>
+<ul>
+<li><p>默认情况下，当前使用的分支是 master分支</p>
+</li>
+<li><p>可以切换到 dev分支，则后续的<a href="">git commit</a> 便会在dev分支上新建版本(提交点)</p>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">切换分支</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF.jpg" alt="切换分支"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">再次查看分支情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF.jpg" alt="查看分支"></td>
+</tr>
+</tbody></table>
+<h4 id="8-3-新建分支细节"><a href="#8-3-新建分支细节" class="headerlink" title="8.3 新建分支细节"></a>8.3 新建分支细节</h4><blockquote>
+<p>新建分支时，新分支，默认有哪些内容？分支中包含了哪些次提交？</p>
+</blockquote>
+<h5 id="8-3-1-新分支初始内容"><a href="#8-3-1-新分支初始内容" class="headerlink" title="8.3.1 新分支初始内容"></a>8.3.1 新分支初始内容</h5><blockquote>
+<p>每个分支都有一个<a href="">指针</a>，新建一个分支，首先是新建一个<a href="">指针</a>。</p>
+<p>而且新分支的指针会和当前分支指向<a href="">同一个提交点</a>。</p>
+<p>新分支包含的提交点就是从第一个提交点到分支指针指向的提交点。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">每个分支都有一个指针，新建一个分支，首先是新建一个指针</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E7%BB%86%E8%8A%821.jpg" alt="新建分支细节1"></td>
+</tr>
+</tbody></table>
+<h5 id="8-3-2-多分支走向"><a href="#8-3-2-多分支走向" class="headerlink" title="8.3.2 多分支走向"></a>8.3.2 多分支走向</h5><blockquote>
+<p>在master分支和新分支，分别进行 <a href="">git add</a> 和 <a href="">git commit</a></p>
+<p>分支情况如下图：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">master分支未动，在dev分支增加一次commit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E7%BB%86%E8%8A%822.jpg" alt="新建分支细节2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">master分支增加一个commit，dev分支再增加一个commit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E7%BB%86%E8%8A%823.jpg" alt="新建分支细节3"></td>
+</tr>
+</tbody></table>
+<h5 id="8-3-3-分支提交日志"><a href="#8-3-3-分支提交日志" class="headerlink" title="8.3.3 分支提交日志"></a>8.3.3 分支提交日志</h5><blockquote>
+<p>查看分支的提交日志，进而看到分支中提交点的详细情况。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">提交情况如下</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%8F%90%E4%BA%A4%E6%97%A5%E5%BF%97.jpg" alt="提交日志"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">查看当前分支的提交日志</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%8F%90%E4%BA%A4%E6%97%A5%E5%BF%972.jpg" alt="提交日志2"></td>
+</tr>
+</tbody></table>
+<h4 id="8-4-分支合并"><a href="#8-4-分支合并" class="headerlink" title="8.4 分支合并"></a>8.4 分支合并</h4><blockquote>
+<p>两个分支内容的合并</p>
+</blockquote>
+<blockquote>
+<p><a href="">git merge 分支a</a>  合并分支a</p>
+</blockquote>
+<blockquote>
+<p>合并的方式有两种：快速合并 和  三方合并。</p>
+</blockquote>
+<h5 id="8-4-1-快速合并"><a href="#8-4-1-快速合并" class="headerlink" title="8.4.1 快速合并"></a>8.4.1 快速合并</h5><blockquote>
+<p>如果分支A当前的修改，是完全基于分支B的修改而来，则B分支合并A分支，就是移动指针即可。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">合并前分支状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E7%BB%86%E8%8A%822.jpg" alt="新建分支细节2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">快速合并效果（master 合并 dev）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%BF%AB%E9%80%9F%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6.jpg" alt="快速分支合并"></td>
+</tr>
+</tbody></table>
+<h5 id="8-4-2-三方合并"><a href="#8-4-2-三方合并" class="headerlink" title="8.4.2 三方合并"></a>8.4.2 三方合并</h5><blockquote>
+<p>在不具备快速合并的条件下，会采用三方合并。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">合并前，分支状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E7%BB%86%E8%8A%823.jpg" alt="新建分支细节3"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">三方合并，将<code>2</code>和<code>3</code>的更改都累加在<code>1</code>上，形成新的提交点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E4%B8%89%E6%96%B9%E5%90%88%E5%B9%B6.jpg" alt="三方合并"></td>
+</tr>
+</tbody></table>
+<h5 id="8-4-3-合并冲突"><a href="#8-4-3-合并冲突" class="headerlink" title="8.4.3 合并冲突"></a>8.4.3 合并冲突</h5><blockquote>
+<p>两个分支进行合并，但它们含有对同一个文件的修改，则在合并时出现冲突，git无法决断该保留改文件哪个分支的修改。</p>
+</blockquote>
+<h6 id="8-4-3-1-冲突演示"><a href="#8-4-3-1-冲突演示" class="headerlink" title="8.4.3.1 冲突演示"></a>8.4.3.1 冲突演示</h6><blockquote>
+<p>场景模拟如下：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">master分支修改hig.txt文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%86%B2%E7%AA%811.jpg" alt="冲突1"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">dev分支修改hig.txt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%86%B2%E7%AA%812.jpg" alt="冲突2"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>在master分支 合并 dev分支</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">合并dev分支</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%86%B2%E7%AA%813.jpg" alt="冲突3"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>此时，打开hig.txt 文件：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">冲突后，git会将两个分支的内容都展示在文件中</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%86%B2%E7%AA%814.jpg" alt="冲突4"></td>
+</tr>
+</tbody></table>
+<h6 id="8-4-3-2-冲突解决"><a href="#8-4-3-2-冲突解决" class="headerlink" title="8.4.3.2 冲突解决"></a>8.4.3.2 冲突解决</h6><blockquote>
+<p>出现冲突后，如要由两个开发人员当面协商，该如何取舍，为冲突文件定义最终内容。</p>
+<p>解决方案：</p>
+<ol>
+<li>保留某一方的，删除另一方的</li>
+<li>保留双方的</li>
+<li>但无论如何，要记得删除  <a href="">&lt;&lt;&lt;&lt;  ====  &gt;&gt;&gt;&gt;</a> 这些</li>
+<li>本质是两人协商为冲突的内容，定制出合理的内容。</li>
+</ol>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">根据协商，再次编辑文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%86%B2%E7%AA%815.jpg" alt="冲突5"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">提交 再次编辑后的文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%86%B2%E7%AA%816.jpg" alt="冲突6"></td>
+</tr>
+</tbody></table>
+<h3 id="九、Idea关联Git"><a href="#九、Idea关联Git" class="headerlink" title="九、Idea关联Git"></a>九、Idea关联Git</h3><hr>
+<h4 id="9-1-关联Git"><a href="#9-1-关联Git" class="headerlink" title="9.1 关联Git"></a>9.1 关联Git</h4><blockquote>
+<p><a href="">File &gt; Settings</a>  关联过程是自动的</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">此处关联是Idea可以自动完成的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E5%85%B3%E8%81%94git.jpg" alt="idea-关联git"></td>
+</tr>
+</tbody></table>
+<h4 id="9-2-创建仓库"><a href="#9-2-创建仓库" class="headerlink" title="9.2 创建仓库"></a>9.2 创建仓库</h4><blockquote>
+<ul>
+<li><p>新建项目后，将项目目录创建为git仓库</p>
+</li>
+<li><p>注意： 要在建仓库前，设置<a href="">忽略文件 “.gitignore”</a></p>
+<p>作用：被忽略的文件会被版本记录忽略，版本中不包含它们。</p>
+<p>范围：不需要和其他开发共享的文件，具体见下图。</p>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">创建仓库前，先添加忽略文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%930.jpg" alt="idea-创建仓库0"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">将项目目录初始化为一个仓库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%931.jpg" alt="idea-创建仓库1"></td>
+</tr>
+<tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%932.jpg" alt="idea-创建仓库2"></td>
+</tr>
+</tbody></table>
+<h4 id="9-3-提交-commit"><a href="#9-3-提交-commit" class="headerlink" title="9.3 提交-commit"></a>9.3 提交-commit</h4><blockquote>
+<p>创建好仓库后，做第一次提交。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">选择提交菜单</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-commit.jpg" alt="idea-commit"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">选择提交文件，定义提交信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-commit2.jpg" alt="idea-commit2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">之后会有些友好提示，可以忽略，点击<code>“commit”</code>即可</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-commit3.jpg" alt="idea-commit3"></td>
+</tr>
+</tbody></table>
+<h4 id="9-4-创建分支"><a href="#9-4-创建分支" class="headerlink" title="9.4 创建分支"></a>9.4 创建分支</h4><blockquote>
+<p>新建开发分支</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">点击右下角链接，即可</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF.jpg" alt="idea-新建分支"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">新建分支</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF2.jpg" alt="idea-新建分支2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">查看当前分支</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF3.jpg" alt="idea-新建分支3"></td>
+</tr>
+</tbody></table>
+<h4 id="9-5-上传到远程仓库-push"><a href="#9-5-上传到远程仓库-push" class="headerlink" title="9.5 上传到远程仓库(push)"></a>9.5 上传到远程仓库(push)</h4><blockquote>
+<ul>
+<li><p>请首先参照第7章，创建一个远程仓库。</p>
+</li>
+<li><p>要求是裸库，且建议库名和项目名同名。</p>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">选择<code>push</code>菜单</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-push.jpg" alt="idea-push"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">定义远程仓库地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-push3.jpg" alt="idea-push3"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">执行，push操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-push4.jpg" alt="idea-push4"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">push成功后 ，弹窗提示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-push5.jpg" alt="idea-push5"></td>
+</tr>
+</tbody></table>
+<h4 id="9-6-复制到本地仓库-clone"><a href="#9-6-复制到本地仓库-clone" class="headerlink" title="9.6 复制到本地仓库(clone)"></a>9.6 复制到本地仓库(clone)</h4><blockquote>
+<p>如果有建好的远程仓库，比如公司内已经在用的仓库，或者github，码云上的一些公开仓库，</p>
+<p>可以将远程仓库的项目复制到本地使用。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">点击克隆菜单</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-clone1.jpg" alt="idea-clone"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">输入如远程仓库地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-clone2.jpg" alt="idea-clone2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">打开项目</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-clone3.jpg" alt="idea-clone3"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">打开项目，选项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-clone4.jpg" alt="idea-clone4"></td>
+</tr>
+</tbody></table>
+<h4 id="9-7-更新本地项目"><a href="#9-7-更新本地项目" class="headerlink" title="9.7 更新本地项目"></a>9.7 更新本地项目</h4><blockquote>
+<p>如果远程仓库有更新，则你的本地项目也需要一起更新。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">选择pull菜单</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-pull1.jpg" alt="idea-pull1"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">执行 pull操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-pull2.jpg" alt="idea-pull2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">更新日志显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-pull3.jpg" alt="idea-pull3"></td>
+</tr>
+</tbody></table>
+<h4 id="9-8-冲突解决"><a href="#9-8-冲突解决" class="headerlink" title="9.8 冲突解决"></a>9.8 冲突解决</h4><blockquote>
+<p>合并分支时，如果出现冲突，则需要解决冲突。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">冲突出现，弹窗中可以选择如下</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E5%86%B2%E7%AA%81.jpg" alt="idea-冲突"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">也可以直接修改冲突文件，然后commit即可</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/idea-%E5%86%B2%E7%AA%812.jpg" alt="idea-冲突2"></td>
+</tr>
+</tbody></table>
+<h3 id="十、多人协同开发"><a href="#十、多人协同开发" class="headerlink" title="十、多人协同开发"></a>十、多人协同开发</h3><hr>
+<blockquote>
+<p>多人开发协同，git操作</p>
+</blockquote>
+<h4 id="10-1-项目管理员-项目经理"><a href="#10-1-项目管理员-项目经理" class="headerlink" title="10.1 项目管理员( 项目经理 )"></a>10.1 项目管理员( 项目经理 )</h4><blockquote>
+<p>1&gt; 由管理员负责创建一个远程库，初始的库中什么也没有，为裸库。库的名称建议和项目同名</p>
+</blockquote>
+<blockquote>
+<p>2&gt; 管理员会在idea中创建一个初始项目,其中包含.gitignore文件。                                                                                               并在项目根目录下 建立本地库。并建立 dev分支。</p>
+</blockquote>
+<blockquote>
+<p>3&gt; 管理员将本地库上传到远程库</p>
+</blockquote>
+<blockquote>
+<p>4&gt; 将其他开发人员拉入远程库的 <a href="">开发成员列表中</a> ，使得其他开发人员可以访问该远程库。</p>
+<p>流程如下：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">点击添加成员</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%B7%BB%E5%8A%A0%E5%BC%80%E5%8F%91%E6%88%90%E5%91%98.jpg" alt="添加开发成员"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">选择直接添加</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%B7%BB%E5%8A%A0%E5%BC%80%E5%8F%91%E6%88%90%E5%91%982.jpg" alt="添加开发成员2"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">提交</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%B7%BB%E5%8A%A0%E5%BC%80%E5%8F%91%E6%88%90%E5%91%983.jpg" alt="添加开发成员3"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">查看已添加的开发成员</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E6%B7%BB%E5%8A%A0%E5%BC%80%E5%8F%91%E6%88%90%E5%91%984.jpg" alt="添加开发成员4"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>5&gt; master分支设置为 <a href="">protected分支</a>，只有管理员有权限将代码合并到其中。dev分支设置为 <a href="">常规分支</a>所有开发人员        都可以其中合并代码</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">进入分支设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E4%BF%9D%E6%8A%A4%E5%88%86%E6%94%AF1.jpg" alt="保护分支1"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">设置保护分支，让master分支不能被随更改</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E4%BF%9D%E6%8A%A4%E5%88%86%E6%94%AF2.jpg" alt="保护分支2"></td>
+</tr>
+</tbody></table>
+<h4 id="10-2-开发人员"><a href="#10-2-开发人员" class="headerlink" title="10.2 开发人员"></a>10.2 开发人员</h4><blockquote>
+<ul>
+<li><p>初始化：在idea中clone 远程库，获得项目。会建立本地库</p>
+</li>
+<li><p>后续的开发中，都要在dev分支上进行。开发完一个功能并测试通过后就commit      提交到本地的dev分支中，然后 上传(push)到远程dev分支中。    </p>
+</li>
+<li><p>需要更新项目内容时，通过 pull 从远程仓库拉取内容。                                                                       </p>
+</li>
+<li><p>注意：多人协同时，每次在 push 到远程库前，都先做一次pull，一来是把远程最新内容合并到本地，二来是核实本地内容是否和远程内容有冲突。</p>
+</li>
+<li><p>后续的开发，会接到一个个的功能任务，往复操作 2&gt;、3&gt;、4&gt; 而已。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="十一、经典问题"><a href="#十一、经典问题" class="headerlink" title="十一、经典问题"></a>十一、经典问题</h3><hr>
+<blockquote>
+<p>在使用https协议做push时，如果曾经使用过码云，但密码有过改动，此时会报错</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">使用https协议报错</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%9D%911.jpg" alt="坑1"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>解决方案:  <a href="">控制面板  》 凭据管理器 》</a> 删除对应凭证，再次使用时会提示重新输入密码。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">删除之前的码云凭证，然后重新push即可</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/%E5%9D%912.jpg" alt="坑2"></td>
+</tr>
+</tbody></table>
 ]]></content>
   </entry>
   <entry>

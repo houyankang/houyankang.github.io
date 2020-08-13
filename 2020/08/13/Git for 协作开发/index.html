@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>Yan&#39;s Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Yan">
+  <meta name="keywords" content="Java��Html��CSS��JavaScript�ȱ�̾�������������ܽᡢ�ĵ����">
+  <meta name="description" content="Java��Html��CSS��JavaScript�ȱ�̾�������������ܽᡢ�ĵ����">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": true,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'search.xml'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.0.2"></head>
+<body>
+<div class="single">
+<a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i></a>
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Search..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>2020-08-13</span>
+    <h2></h2>
+    
+    <div class="social-links">
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1337485110&amp;site=qq&amp;menu=yes" target="_blank"><i class="fa fa-qq fa-fw"></i></a>
+</div></div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <hr>
+<p>title：Git协作开发<br>comment：true</p>
+<hr>
+<h1 id="Git协作开发"><a href="#Git协作开发" class="headerlink" title="Git协作开发"></a>Git协作开发</h1><a id="more"></a>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200616223339.png" alt="image-20200616223337238"></p>
+<blockquote>
+<p>整体流程：</p>
+<p>Git 公共仓库账号 → 邀请协作伙伴 → 协作伙伴都同意。</p>
+<p>Git 公共仓库账号 → 搭好项目架子上传 → <code>Git链接</code> → 作为基础代码可以被 被邀请者 pull(拉) 到本地。</p>
+<p>Git 公共仓库账号 → 创建 dev 分支 → push 远程仓库（即上传，此时 dev 分支代码同 master 代码）</p>
+<p>协作者 → IDEA登陆 Git → 打开<code>Git链接</code> → Fork到自己仓库 → IDEA创建以自己仓库链接为源码的项目</p>
+<p>协作者 → 更新代码 → Add → Commit → Commit Message(必填)</p>
+<p>协作者 → dev分支 → Push 推送 → 页面操作创建 pull request</p>
+<p>Git 公共仓库账号 → 收到新的 pull request → review 代码没问题(相当于过了测试阶段) → Merge(默认合并到主分支)</p>
+</blockquote>
+<h3 id="1-添加协作伙伴"><a href="#1-添加协作伙伴" class="headerlink" title="1. 添加协作伙伴"></a>1. 添加协作伙伴</h3><p>先注册一个公共 Git 账号，创建公共仓库，用于存放代码、更新项目代码。</p>
+<p>该公共仓库所属账号，邀请所有协作伙伴，伙伴均同意成为伙伴。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195042.png" alt="image-20200713195041226"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195223.png" alt="image-20200713195222104"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195300.png" alt="image-20200713195259380"></p>
+<p>邮件里点击按钮，进入页面直接同意邀请即可。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713195349.png" alt="image-20200713195348069"></p>
+<h3 id="2-IDEA-Git-操作"><a href="#2-IDEA-Git-操作" class="headerlink" title="2. IDEA-Git 操作"></a>2. IDEA-Git 操作</h3><p>公共仓库账号需要操作的是：将基础架子代码上传。名称不变，描述信息要写。</p>
+<ul>
+<li>推主分支上一份 基础的架子 代码。</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713201050.png" alt="image-20200713201048787"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713201130.png" alt="image-20200713201129040"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713201349.png" alt="image-20200713201348356"></p>
+<ul>
+<li>创建 dev 分支</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713202525.png" alt="image-20200713202524457"></p>
+<p>Ctrl + Shift + ` &gt;&gt; Git &gt;&gt; 操作分支，将 dev 分支推到远程仓库。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713202842.png" alt="image-20200713202841629"></p>
+<p>远程仓库中可以看到 dev 分支代码（截止目前 dev 和 master 主分支代码相同）。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713203031.png" alt="image-20200713203030154"></p>
+<h3 id="3-被邀请的协作者操作"><a href="#3-被邀请的协作者操作" class="headerlink" title="3. 被邀请的协作者操作"></a>3. 被邀请的协作者操作</h3><ul>
+<li>准备工作：需要协作开发的人员在 IDEA 中登陆自己的 Git 账号。</li>
+</ul>
+<p>其他所有被邀请者登陆自己的账号，登陆之后才能进行相关的 pull(拉) 和 push(推) 代码的操作，切记不能使用 公共仓库的账号直接推库（会影响所有被邀请者的本地代码提交-&gt;冲突）。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713200645.png" alt="image-20200713200643684"></p>
+<ul>
+<li>打开公共仓库的 git 地址，Fork 一份到自己仓库中</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205136.png" alt="image-20200713205135196"></p>
+<ul>
+<li>然后使用自己仓库中 fork 下来的代码的 git 路径创建工程</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/blog/1853022/202004/1853022-20200427171743338-1863064839.png" alt="img"></p>
+<p><img src="https://img2020.cnblogs.com/blog/1853022/202004/1853022-20200427171907508-1590551135.png" alt="img"></p>
+<ul>
+<li>右下角，切换到 dev 分支，进行代码更新和上库</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713204616.png" alt="image-20200713204615352"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713204639.png" alt="image-20200713204638220"></p>
+<ul>
+<li>更新上库步骤三步走：<strong>Add</strong>(添加到暂存库) → <strong>Commit</strong>(提交到本地仓库) → <strong>Push</strong>(推送的远程仓库)</li>
+</ul>
+<p><code>要求：必须填写 commit message！不填不予合并！</code></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205448.png" alt="image-20200713205446918"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205708.png" alt="image-20200713205707122"></p>
+<p>分支推送才算真正的推送成功：<code>遇到 TimeOut 超时错误提示，不用怕，网络问题，继续 Push即可。</code></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205822.png" alt="image-20200713205821000"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713205803.png" alt="image-20200713205802739"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210157.png" alt="image-20200713210155223"></p>
+<blockquote>
+<p>看到上面这句，恭喜你，已经推送到 分支 成功了！</p>
+</blockquote>
+<ul>
+<li>然后，提交 pull request （才能被 公共仓库 账号合并到主分支，测试、发布上线）</li>
+</ul>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210338.png" alt="image-20200713210336602"></p>
+<p>如果看不到 Compare &amp; pull request 按钮的提示，那么做如下操作也是一样：</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713212252.png" alt="image-20200713212251506"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210349.png" alt="image-20200713210348400"></p>
+<h3 id="4-公共仓库账号合并代码"><a href="#4-公共仓库账号合并代码" class="headerlink" title="4. 公共仓库账号合并代码"></a>4. 公共仓库账号合并代码</h3><p>收到新的 pull request(1)</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210436.png" alt="image-20200713210435088"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210620.png" alt="image-20200713210619833"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713212655.png" alt="image-20200713212654846"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713212717.png" alt="image-20200713212715779"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210653.png" alt="image-20200713210652493"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713210716.png" alt="image-20200713210715174"></p>
+<h3 id="5-测过OK-将-dev-分支合并到-master-主分支"><a href="#5-测过OK-将-dev-分支合并到-master-主分支" class="headerlink" title="5. (测过OK)将 dev 分支合并到 master 主分支"></a>5. (测过OK)将 dev 分支合并到 master 主分支</h3><p>公共仓库账号需要的操作：</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213545.png" alt="image-20200713213544437"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213604.png" alt="image-20200713213603838"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213627.png" alt="image-20200713213626643"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213651.png" alt="image-20200713213649836"></p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213726.png" alt="image-20200713213725598"></p>
+<p>继续 Merge 即可。</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713213738.png" alt="image-20200713213737265"></p>
+<h3 id="6-最高频坑：代码冲突"><a href="#6-最高频坑：代码冲突" class="headerlink" title="6. 最高频坑：代码冲突"></a>6. 最高频坑：代码冲突</h3><p>项目组 n 个人共同协作开发公司项目，项目的代码版本从 01 版本开始迭代。（01是什么意思？如图）</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200714001145.png" alt="image-20200714001144030"></p>
+<p>第一天，A B C 三个程序猿一大早就从Git链接创建了工程，开始写自己部分的代码。</p>
+<p>假定 A 写登陆注册、B写购物车、C写列表页详情页等，都是写后台 API 接口</p>
+<p>早上拉下来的代码，大家都是一样的 01 版本(即 commit id，非项目自定义版本号)。</p>
+<p>临近下班时，A 写完了自己的功能，add→commit→push了代码，测试测过了，主管 merge 了代码，此时 Git 的版本号即 commit id 已经变为了 02 了。</p>
+<p>那么问题来了：<code>B 和 C 的代码是基于早上拉下来的 01 写的，B与C不论谁再次提交都会冲突且无法提交！</code></p>
+<p>解决办法：</p>
+<p>[<strong>B写好的代码 1份</strong>]  → 合并 → [<strong>git clone xxx.git 为 02 版本的代码一份</strong>]</p>
+<p>Beyond Compare 代码对比工具，将 B 写好的代码合并到基于 02 版本(与库上一致)后，通过 git bash 命令行进行 Push 操作。</p>
+<p>（B提交后，dev 分支版本变为 03，然后 C 需要重复 B 的操作，基于 03 开始合代码提交，<code>这是必然且必须的</code>）</p>
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200713235930.png" alt="image-20200713235928806"></p>
+<p>Beyond Compare(坡懈无限30天)</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1MTBlQ0SYYfvLhfNB3pSkug">https://pan.baidu.com/s/1MTBlQ0SYYfvLhfNB3pSkug</a><br>提取码：alrs</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git config --global user.name &quot;xxx&quot;</span></span><br><span class="line"><span class="comment"># git config --global user.email &quot;xxx&quot;</span></span><br><span class="line">git add filename  <span class="comment"># 【添加】到暂存库（==内存）</span></span><br><span class="line">git commit -m <span class="string">&quot;commit message&quot;</span>  <span class="comment"># 【提交】到本地仓库（==硬盘）</span></span><br><span class="line">git push origin dev  <span class="comment"># 【推送】到远程 dev 分支（==远端服务器）</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200714000813.png" alt="image-20200714000811832"></p>
+<p>GitHub 提 pull request，公共仓库账号查看并合并 pull request 里的代码到 dev，测试拉取 dev 分支最新代码进行测试，测试OK后，公共仓库账号再将 dev 直接合并到 master，作为正式版本发布上线。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/08/13/Git/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>Git入门</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/08/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%A6%E5%8F%91%E5%99%A8/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>数据库触发器</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+<div class="comment"><div id="comments"></div></div>
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Yan's Notes</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="Yan"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Yan</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>Friends</span>
+        <ul>
+          <li> <a href="/null" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/local.search.js"></script>
+
+
+</body>
+</html>

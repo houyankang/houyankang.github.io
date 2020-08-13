@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>Yan&#39;s Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Yan">
+  <meta name="keywords" content="Java��Html��CSS��JavaScript�ȱ�̾�������������ܽᡢ�ĵ����">
+  <meta name="description" content="Java��Html��CSS��JavaScript�ȱ�̾�������������ܽᡢ�ĵ����">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": true,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'search.xml'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.0.2"></head>
+<body>
+<div class="single">
+<a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i></a>
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Search..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>2020-08-13</span>
+    <h2></h2>
+    
+    <div class="social-links">
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1337485110&amp;site=qq&amp;menu=yes" target="_blank"><i class="fa fa-qq fa-fw"></i></a>
+</div></div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <hr>
+<p>title：Git 使用流程<br>comment：true</p>
+<hr>
+<h1 id="Git流程"><a href="#Git流程" class="headerlink" title="Git流程"></a>Git流程</h1><a id="more"></a>
+
+<p><a href="">特别注意：当中央仓库是空的时，可以将本地文件直接传入到中央仓库，若是中央仓库有文件时，只能先clone下来修改后再去进行上传操作！！！</a></p>
+<h1 id="一、单人操作"><a href="#一、单人操作" class="headerlink" title="一、单人操作"></a>一、单人操作</h1><h3 id="1-1、步骤1"><a href="#1-1、步骤1" class="headerlink" title="1.1、步骤1"></a>1.1、步骤1</h3><blockquote>
+<p>创建库的存储位置，并运行软件</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291159760.png" alt="1592291159760">步骤2</p>
+<h3 id="1-2、步骤2：登录（第一次使用时）"><a href="#1-2、步骤2：登录（第一次使用时）" class="headerlink" title="1.2、步骤2：登录（第一次使用时）"></a>1.2、步骤2：登录（第一次使用时）</h3><blockquote>
+<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#x6d;&#x61;&#x69;&#108;&#64;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x65;&#x6d;&#x61;&#x69;&#108;&#64;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a>“  #邮箱</p>
+<p>git config -l  查看信息</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291436256.png" alt="1592291436256"></p>
+<blockquote>
+<p>全局文件所在位置</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291602333.png" alt="1592291602333"></p>
+<h3 id="1-3、步骤3-：初始化"><a href="#1-3、步骤3-：初始化" class="headerlink" title="1.3、步骤3 ：初始化"></a>1.3、步骤3 ：初始化</h3><blockquote>
+<p>指令：$ git init</p>
+</blockquote>
+<h3 id="1-4、步骤4：将本地文件上传到缓存区"><a href="#1-4、步骤4：将本地文件上传到缓存区" class="headerlink" title="1.4、步骤4：将本地文件上传到缓存区"></a>1.4、步骤4：将本地文件上传到缓存区</h3><blockquote>
+<p>指令：$ git status    查看状态</p>
+<p>​                $git add <a href="">文件名</a>    将文件添加到缓存区</p>
+<p>​                $git commit -m <a href="">“注释”</a>    提交到远程仓库</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291911611.png" alt="1592291911611"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592293051643.png" alt="1592293051643"></p>
+<h3 id="1-5、步骤5：将文件上传到中央仓库"><a href="#1-5、步骤5：将文件上传到中央仓库" class="headerlink" title="1.5、步骤5：将文件上传到中央仓库"></a>1.5、步骤5：将文件上传到中央仓库</h3><blockquote>
+<p>指令：$ git remote add origin <a href="">url</a>    连接到中央仓库</p>
+<p>​              $ git push origin master        推送到中央仓库</p>
+<p><a href="">注意：若是本身就是clone下来的文件 连接中央仓库时可以不加add</a></p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307269239.png" alt="1592307269239"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307309971.png" alt="1592307309971"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592296775397.png" alt="1592296775397"></p>
+<h1 id="二、伙伴协作（给予仓库权限）"><a href="#二、伙伴协作（给予仓库权限）" class="headerlink" title="二、伙伴协作（给予仓库权限）"></a>二、伙伴协作（给予仓库权限）</h1><p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307936863.png" alt="1592307936863"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308149914.png" alt="1592308149914"></p>
+<blockquote>
+<p>然后合作伙伴会在邮箱中收到邀请，进而同意请求</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308289249.png" alt="1592308289249"></p>
+<blockquote>
+<p>此时合作伙伴进入自己的GitHub，就会看到被分享出来的仓库</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592309730924.png" alt="1592309730924"></p>
+<blockquote>
+<p>此时，合作伙伴可以clone中的数据然后进行修改提交，这和个时候，<a href="">合作伙伴有权限直接对主仓库进行提交</a></p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310276494.png" alt="1592310276494"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310343257.png" alt="1592310343257"></p>
+<h1 id="三、第三方协助（没有仓库权限）"><a href="#三、第三方协助（没有仓库权限）" class="headerlink" title="三、第三方协助（没有仓库权限）"></a>三、第三方协助（没有仓库权限）</h1><blockquote>
+<p>​        再创建一个新用户，然后登录，拷贝仓库地址（<a target="_blank" rel="noopener" href="https://github.com/xxxxxxx.git%EF%BC%89%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%EF%BC%8C%E7%84%B6%E5%90%8E%E7%82%B9%E5%87%BBFork%EF%BC%8C%E8%A1%A8%E7%A4%BA%E6%8B%B7%E8%B4%9D%E4%B9%8B%E5%89%8D%E7%9A%84%E4%BB%93%E5%BA%93%E5%88%B0%E8%AF%A5%E7%94%A8%E6%88%B7%E4%B8%8B">https://github.com/xxxxxxx.git），在浏览器执行，然后点击Fork，表示拷贝之前的仓库到该用户下</a>  </p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image002.gif" alt="img"></p>
+<p>此时，相当于在GitHub中有了两个相同的仓库，一个为master，一个为Fork，然后在磁盘再创建一个目录，在目录下右键git bash 打开新窗口，进行如下操作：</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image004.gif" alt="img"></p>
+<p>此时C把A仓库克隆下来之后进行了修改，然后又提交到了C自己的仓库，但实际运行的是A仓库中的代码，所以C需要向A发送请求，A需要同意请求，然后合并即可。</p>
+<p>C发送请求：（首先刷新C当前浏览器页面，点击New pull requst）</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image006.gif" alt="img"></p>
+<p>确认发送请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image008.gif" alt="img"></p>
+<p>再次确认发送请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image010.gif" alt="img"></p>
+<p>此时请求已经发送，A登录后查看请求，若已登录可直接刷新当前浏览器页面</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image012.gif" alt="img"></p>
+<p>点击查看请求后，同意合并请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image014.gif" alt="img"></p>
+<p>再次确认合并</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>No newer post</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/08/13/Git/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>Git入门</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+<div class="comment"><div id="comments"></div></div>
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Yan's Notes</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="Yan"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Yan</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>Friends</span>
+        <ul>
+          <li> <a href="/null" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/local.search.js"></script>
+
+
+</body>
+</html>
