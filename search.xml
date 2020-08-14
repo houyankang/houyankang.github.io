@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git 使用流程</title>
+    <url>/2020/08/13/Git%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="Git流程"><a href="#Git流程" class="headerlink" title="Git流程"></a>Git流程</h1><a id="more"></a>
+
+<p><a href="">特别注意：当中央仓库是空的时，可以将本地文件直接传入到中央仓库，若是中央仓库有文件时，只能先clone下来修改后再去进行上传操作！！！</a></p>
+<h1 id="一、单人操作"><a href="#一、单人操作" class="headerlink" title="一、单人操作"></a>一、单人操作</h1><h3 id="1-1、步骤1"><a href="#1-1、步骤1" class="headerlink" title="1.1、步骤1"></a>1.1、步骤1</h3><blockquote>
+<p>创建库的存储位置，并运行软件</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291159760.png" alt="1592291159760">步骤2</p>
+<h3 id="1-2、步骤2：登录（第一次使用时）"><a href="#1-2、步骤2：登录（第一次使用时）" class="headerlink" title="1.2、步骤2：登录（第一次使用时）"></a>1.2、步骤2：登录（第一次使用时）</h3><blockquote>
+<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#109;&#x61;&#105;&#108;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x65;&#109;&#x61;&#105;&#108;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;</a>“  #邮箱</p>
+<p>git config -l  查看信息</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291436256.png" alt="1592291436256"></p>
+<blockquote>
+<p>全局文件所在位置</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291602333.png" alt="1592291602333"></p>
+<h3 id="1-3、步骤3-：初始化"><a href="#1-3、步骤3-：初始化" class="headerlink" title="1.3、步骤3 ：初始化"></a>1.3、步骤3 ：初始化</h3><blockquote>
+<p>指令：$ git init</p>
+</blockquote>
+<h3 id="1-4、步骤4：将本地文件上传到缓存区"><a href="#1-4、步骤4：将本地文件上传到缓存区" class="headerlink" title="1.4、步骤4：将本地文件上传到缓存区"></a>1.4、步骤4：将本地文件上传到缓存区</h3><blockquote>
+<p>指令：$ git status    查看状态</p>
+<p>​                $git add <a href="">文件名</a>    将文件添加到缓存区</p>
+<p>​                $git commit -m <a href="">“注释”</a>    提交到远程仓库</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291911611.png" alt="1592291911611"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592293051643.png" alt="1592293051643"></p>
+<h3 id="1-5、步骤5：将文件上传到中央仓库"><a href="#1-5、步骤5：将文件上传到中央仓库" class="headerlink" title="1.5、步骤5：将文件上传到中央仓库"></a>1.5、步骤5：将文件上传到中央仓库</h3><blockquote>
+<p>指令：$ git remote add origin <a href="">url</a>    连接到中央仓库</p>
+<p>​              $ git push origin master        推送到中央仓库</p>
+<p><a href="">注意：若是本身就是clone下来的文件 连接中央仓库时可以不加add</a></p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307269239.png" alt="1592307269239"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307309971.png" alt="1592307309971"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592296775397.png" alt="1592296775397"></p>
+<h1 id="二、伙伴协作（给予仓库权限）"><a href="#二、伙伴协作（给予仓库权限）" class="headerlink" title="二、伙伴协作（给予仓库权限）"></a>二、伙伴协作（给予仓库权限）</h1><p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307936863.png" alt="1592307936863"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308149914.png" alt="1592308149914"></p>
+<blockquote>
+<p>然后合作伙伴会在邮箱中收到邀请，进而同意请求</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308289249.png" alt="1592308289249"></p>
+<blockquote>
+<p>此时合作伙伴进入自己的GitHub，就会看到被分享出来的仓库</p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592309730924.png" alt="1592309730924"></p>
+<blockquote>
+<p>此时，合作伙伴可以clone中的数据然后进行修改提交，这和个时候，<a href="">合作伙伴有权限直接对主仓库进行提交</a></p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310276494.png" alt="1592310276494"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310343257.png" alt="1592310343257"></p>
+<h1 id="三、第三方协助（没有仓库权限）"><a href="#三、第三方协助（没有仓库权限）" class="headerlink" title="三、第三方协助（没有仓库权限）"></a>三、第三方协助（没有仓库权限）</h1><blockquote>
+<p>​        再创建一个新用户，然后登录，拷贝仓库地址（<a href="https://github.com/xxxxxxx.git%EF%BC%89%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%EF%BC%8C%E7%84%B6%E5%90%8E%E7%82%B9%E5%87%BBFork%EF%BC%8C%E8%A1%A8%E7%A4%BA%E6%8B%B7%E8%B4%9D%E4%B9%8B%E5%89%8D%E7%9A%84%E4%BB%93%E5%BA%93%E5%88%B0%E8%AF%A5%E7%94%A8%E6%88%B7%E4%B8%8B">https://github.com/xxxxxxx.git），在浏览器执行，然后点击Fork，表示拷贝之前的仓库到该用户下</a>  </p>
+</blockquote>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image002.gif" alt="img"></p>
+<p>此时，相当于在GitHub中有了两个相同的仓库，一个为master，一个为Fork，然后在磁盘再创建一个目录，在目录下右键git bash 打开新窗口，进行如下操作：</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image004.gif" alt="img"></p>
+<p>此时C把A仓库克隆下来之后进行了修改，然后又提交到了C自己的仓库，但实际运行的是A仓库中的代码，所以C需要向A发送请求，A需要同意请求，然后合并即可。</p>
+<p>C发送请求：（首先刷新C当前浏览器页面，点击New pull requst）</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image006.gif" alt="img"></p>
+<p>确认发送请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image008.gif" alt="img"></p>
+<p>再次确认发送请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image010.gif" alt="img"></p>
+<p>此时请求已经发送，A登录后查看请求，若已登录可直接刷新当前浏览器页面</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image012.gif" alt="img"></p>
+<p>点击查看请求后，同意合并请求</p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image014.gif" alt="img"></p>
+<p>再次确认合并</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Git协作开发</title>
     <url>/2020/08/13/Git%20for%20%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91/</url>
     <content><![CDATA[<h1 id="Git协作开发"><a href="#Git协作开发" class="headerlink" title="Git协作开发"></a>Git协作开发</h1><a id="more"></a>
@@ -109,78 +181,6 @@
 
 <p><img src="https://jy-imgs.oss-cn-beijing.aliyuncs.com/img/20200714000813.png" alt="image-20200714000811832"></p>
 <p>GitHub 提 pull request，公共仓库账号查看并合并 pull request 里的代码到 dev，测试拉取 dev 分支最新代码进行测试，测试OK后，公共仓库账号再将 dev 直接合并到 master，作为正式版本发布上线。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Git 使用流程</title>
-    <url>/2020/08/13/Git%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="Git流程"><a href="#Git流程" class="headerlink" title="Git流程"></a>Git流程</h1><a id="more"></a>
-
-<p><a href="">特别注意：当中央仓库是空的时，可以将本地文件直接传入到中央仓库，若是中央仓库有文件时，只能先clone下来修改后再去进行上传操作！！！</a></p>
-<h1 id="一、单人操作"><a href="#一、单人操作" class="headerlink" title="一、单人操作"></a>一、单人操作</h1><h3 id="1-1、步骤1"><a href="#1-1、步骤1" class="headerlink" title="1.1、步骤1"></a>1.1、步骤1</h3><blockquote>
-<p>创建库的存储位置，并运行软件</p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291159760.png" alt="1592291159760">步骤2</p>
-<h3 id="1-2、步骤2：登录（第一次使用时）"><a href="#1-2、步骤2：登录（第一次使用时）" class="headerlink" title="1.2、步骤2：登录（第一次使用时）"></a>1.2、步骤2：登录（第一次使用时）</h3><blockquote>
-<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#109;">&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#109;</a>“  #邮箱</p>
-<p>git config -l  查看信息</p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291436256.png" alt="1592291436256"></p>
-<blockquote>
-<p>全局文件所在位置</p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291602333.png" alt="1592291602333"></p>
-<h3 id="1-3、步骤3-：初始化"><a href="#1-3、步骤3-：初始化" class="headerlink" title="1.3、步骤3 ：初始化"></a>1.3、步骤3 ：初始化</h3><blockquote>
-<p>指令：$ git init</p>
-</blockquote>
-<h3 id="1-4、步骤4：将本地文件上传到缓存区"><a href="#1-4、步骤4：将本地文件上传到缓存区" class="headerlink" title="1.4、步骤4：将本地文件上传到缓存区"></a>1.4、步骤4：将本地文件上传到缓存区</h3><blockquote>
-<p>指令：$ git status    查看状态</p>
-<p>​                $git add <a href="">文件名</a>    将文件添加到缓存区</p>
-<p>​                $git commit -m <a href="">“注释”</a>    提交到远程仓库</p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291911611.png" alt="1592291911611"></p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592293051643.png" alt="1592293051643"></p>
-<h3 id="1-5、步骤5：将文件上传到中央仓库"><a href="#1-5、步骤5：将文件上传到中央仓库" class="headerlink" title="1.5、步骤5：将文件上传到中央仓库"></a>1.5、步骤5：将文件上传到中央仓库</h3><blockquote>
-<p>指令：$ git remote add origin <a href="">url</a>    连接到中央仓库</p>
-<p>​              $ git push origin master        推送到中央仓库</p>
-<p><a href="">注意：若是本身就是clone下来的文件 连接中央仓库时可以不加add</a></p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307269239.png" alt="1592307269239"></p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307309971.png" alt="1592307309971"></p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592296775397.png" alt="1592296775397"></p>
-<h1 id="二、伙伴协作（给予仓库权限）"><a href="#二、伙伴协作（给予仓库权限）" class="headerlink" title="二、伙伴协作（给予仓库权限）"></a>二、伙伴协作（给予仓库权限）</h1><p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592307936863.png" alt="1592307936863"></p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308149914.png" alt="1592308149914"></p>
-<blockquote>
-<p>然后合作伙伴会在邮箱中收到邀请，进而同意请求</p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592308289249.png" alt="1592308289249"></p>
-<blockquote>
-<p>此时合作伙伴进入自己的GitHub，就会看到被分享出来的仓库</p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592309730924.png" alt="1592309730924"></p>
-<blockquote>
-<p>此时，合作伙伴可以clone中的数据然后进行修改提交，这和个时候，<a href="">合作伙伴有权限直接对主仓库进行提交</a></p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310276494.png" alt="1592310276494"></p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592310343257.png" alt="1592310343257"></p>
-<h1 id="三、第三方协助（没有仓库权限）"><a href="#三、第三方协助（没有仓库权限）" class="headerlink" title="三、第三方协助（没有仓库权限）"></a>三、第三方协助（没有仓库权限）</h1><blockquote>
-<p>​        再创建一个新用户，然后登录，拷贝仓库地址（<a href="https://github.com/xxxxxxx.git%EF%BC%89%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A7%E8%A1%8C%EF%BC%8C%E7%84%B6%E5%90%8E%E7%82%B9%E5%87%BBFork%EF%BC%8C%E8%A1%A8%E7%A4%BA%E6%8B%B7%E8%B4%9D%E4%B9%8B%E5%89%8D%E7%9A%84%E4%BB%93%E5%BA%93%E5%88%B0%E8%AF%A5%E7%94%A8%E6%88%B7%E4%B8%8B">https://github.com/xxxxxxx.git），在浏览器执行，然后点击Fork，表示拷贝之前的仓库到该用户下</a>  </p>
-</blockquote>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image002.gif" alt="img"></p>
-<p>此时，相当于在GitHub中有了两个相同的仓库，一个为master，一个为Fork，然后在磁盘再创建一个目录，在目录下右键git bash 打开新窗口，进行如下操作：</p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image004.gif" alt="img"></p>
-<p>此时C把A仓库克隆下来之后进行了修改，然后又提交到了C自己的仓库，但实际运行的是A仓库中的代码，所以C需要向A发送请求，A需要同意请求，然后合并即可。</p>
-<p>C发送请求：（首先刷新C当前浏览器页面，点击New pull requst）</p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image006.gif" alt="img"></p>
-<p>确认发送请求</p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image008.gif" alt="img"></p>
-<p>再次确认发送请求</p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image010.gif" alt="img"></p>
-<p>此时请求已经发送，A登录后查看请求，若已登录可直接刷新当前浏览器页面</p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image012.gif" alt="img"></p>
-<p>点击查看请求后，同意合并请求</p>
-<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/clip_image014.gif" alt="img"></p>
-<p>再次确认合并</p>
 ]]></content>
   </entry>
   <entry>
