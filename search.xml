@@ -122,7 +122,7 @@
 </blockquote>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291159760.png" alt="1592291159760">步骤2</p>
 <h3 id="1-2、步骤2：登录（第一次使用时）"><a href="#1-2、步骤2：登录（第一次使用时）" class="headerlink" title="1.2、步骤2：登录（第一次使用时）"></a>1.2、步骤2：登录（第一次使用时）</h3><blockquote>
-<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#x6d;&#97;&#x69;&#x6c;&#64;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x65;&#x6d;&#97;&#x69;&#x6c;&#64;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;</a>“  #邮箱</p>
+<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#109;&#x61;&#x69;&#108;&#64;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#x6d;">&#x65;&#109;&#x61;&#x69;&#108;&#64;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#x6d;</a>“  #邮箱</p>
 <p>git config -l  查看信息</p>
 </blockquote>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291436256.png" alt="1592291436256"></p>
@@ -1717,7 +1717,7 @@
 <h4 id="2-3-Nacos组成和架构"><a href="#2-3-Nacos组成和架构" class="headerlink" title="2.3 Nacos组成和架构"></a>2.3 Nacos组成和架构</h4><blockquote>
 <p>使用 Nacos 简化服务发现、配置管理、服务治理及管理的解决方案，让微服务的发现、管理、共享、组合更加容易。</p>
 </blockquote>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/jpeg/338441/1561217892717-1418fb9b-7faa-4324-87b9-f1740329f564.jpeg" alt="nacos_arch.jpg"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/image-20200814211359822.png" alt="image-20200814211359822"></p>
 <p><strong>Nacos生态图</strong></p>
 <hr>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/image-20200814155328968.png" alt="image-20200814155328968"></p>
