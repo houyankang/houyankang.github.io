@@ -238,7 +238,7 @@
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/image-20200814155513942.png" alt="image-20200814155513942"></p>
 <p><strong>逻辑架构及其组件介绍</strong></p>
 <hr>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/png/338441/1561217775318-6e408805-18bb-4242-b4e9-83c5b929b469.png" alt="nacos-logic.jpg"></p>
+<p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/image-20200814211515836.png" alt="image-20200814211515836"></p>
 <blockquote>
 <ul>
 <li>服务管理：实现服务CRUD，域名CRUD，服务健康状态检查，服务权重管理等功能</li>
@@ -530,32 +530,31 @@
 </ul>
 </blockquote>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/image-20200814195556706.png" alt="image-20200814195556706"></p>
-<h4 id="7-3-Sleuth的功能"><a href="#7-3-Sleuth的功能" class="headerlink" title="7.3 Sleuth的功能"></a>7.3 Sleuth的功能</h4><table>
-<thead>
-<tr>
-<th><strong>特点</strong></th>
-<th align="left"><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>提供链路追踪</td>
-<td align="left">通过sleuth可以很清楚的看出一个请求经过了哪些服务，可以方便的理清服务局的调用关系</td>
-</tr>
-<tr>
-<td>性能分析</td>
-<td align="left">通过sleuth可以很方便的看出每个采集请求的耗时，分析出哪些服务调用比较耗时，当服务调用的耗时随着请求量的增大而增大时，也可以对服务的扩容提供一定的提醒作用</td>
-</tr>
-<tr>
-<td>数据分析，优化链路</td>
-<td align="left">对于频繁地调用一个服务，或者并行地调用等，可以针对业务做一些优化措施</td>
-</tr>
-<tr>
-<td>可视化</td>
-<td align="left">对于程序未捕获的异常，可以在zipkpin界面上看到</td>
-</tr>
-</tbody></table>
-<h4 id="7-4-Zipkin"><a href="#7-4-Zipkin" class="headerlink" title="7.4 Zipkin"></a>7.4 Zipkin</h4><p>​        Zipkin是一个分布式跟踪系统。它有助于收集解决服务体系结构中的延迟问题所需的时序数据。功能包括该数据的收集和查找。</p>
+<h4 id="7-3-Sleuth的功能"><a href="#7-3-Sleuth的功能" class="headerlink" title="7.3 Sleuth的功能"></a>7.3 Sleuth的功能</h4><blockquote>
+<p>特点：</p>
+<ul>
+<li>提供链路追踪<ul>
+<li>通过sleuth可以很清楚的看出一个请求经过了哪些服务，可以方便的理清服务局的调用关系</li>
+</ul>
+</li>
+<li>性能分析<ul>
+<li>通过sleuth可以很方便的看出每个采集请求的耗时，分析出哪些服务调用比较耗时，当服务调用的耗时随着请求量的增大而增大时，也可以对服务的扩容提供一定的提醒作用</li>
+</ul>
+</li>
+<li>数据分析，优化链路<ul>
+<li>对于频繁地调用一个服务，或者并行地调用等，可以针对业务做一些优化措施</li>
+</ul>
+</li>
+<li>可视化<ul>
+<li>对于程序未捕获的异常，可以在zipkpin界面上看到</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="7-4-Zipkin"><a href="#7-4-Zipkin" class="headerlink" title="7.4 Zipkin"></a>7.4 Zipkin</h4><blockquote>
+<p>​        Zipkin是一个分布式跟踪系统。它有助于收集解决服务体系结构中的延迟问题所需的时序数据。功能包括该数据的收集和查找。</p>
 <p>​        Zipkin 是 Twitter 的一个开源项目，它基于 Google Dapper 实现，它致力于收集服务的定时数据，以解决微服务架构中的延迟问题，包括数据的收集、存储、查找和展现。 我们可以使用它来收集各个服务器上请求链路<br>的跟踪数据，并通过它提供的 REST API 接口来辅助我们查询跟踪数据以实现对分布式系统的监控程序，从而及时地发现系统中出现的延迟升高问题并找出系统性能瓶颈的根源。除了面向开发的 API 接口之外，它也提供了方便的 UI 组件来帮助我们直观的搜索跟踪信息和分析请求链路明细，比如：可以查询某段时间内各用户请求的处理时间等。</p>
+</blockquote>
 <p>​        Zipkin 提供了可插拔数据存储方式：In-Memory、MySql、Cassandra 以及 Elasticsearch。</p>
 <p>接下来的测试为方便直接采用 In-Memory 方式进行存储，生产推荐 Elasticsearch。</p>
 <blockquote>
