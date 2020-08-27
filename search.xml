@@ -122,7 +122,7 @@
 </blockquote>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291159760.png" alt="1592291159760">步骤2</p>
 <h3 id="1-2、步骤2：登录（第一次使用时）"><a href="#1-2、步骤2：登录（第一次使用时）" class="headerlink" title="1.2、步骤2：登录（第一次使用时）"></a>1.2、步骤2：登录（第一次使用时）</h3><blockquote>
-<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#101;&#x6d;&#x61;&#x69;&#108;&#x40;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#109;">&#101;&#x6d;&#x61;&#x69;&#108;&#x40;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#99;&#111;&#109;</a>“  #邮箱</p>
+<p>git config –global user.name “Your Name”  #用户名<br>git config –global user.email “<a href="mailto:&#x65;&#x6d;&#97;&#105;&#108;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x65;&#x6d;&#97;&#105;&#108;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a>“  #邮箱</p>
 <p>git config -l  查看信息</p>
 </blockquote>
 <p><img src="https://yankang.oss-cn-beijing.aliyuncs.com/imgs/1592291436256.png" alt="1592291436256"></p>
@@ -879,7 +879,7 @@
 <h5 id="11-5-2、编写-gitlab-ci-yml"><a href="#11-5-2、编写-gitlab-ci-yml" class="headerlink" title="11.5.2、编写.gitlab-ci.yml"></a>11.5.2、编写.gitlab-ci.yml</h5><blockquote>
 <p>编写<a href="">.gitlab-ci.yml</a>文件</p>
 </blockquote>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="string">-test</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">test:</span></span><br><span cls="line">  <span class="attr">stage:</span> <span class="string">test</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="string">-echo</span> <span class="string">first</span> <span class="string">test</span> <span class="string">ci</span>  <span class="comment">#输入的命令</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">stages:</span></span><br><span class="line">  <span class="string">-test</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">test</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="string">-echo</span> <span class="string">first</span> <span class="string">test</span> <span class="string">ci</span>  <span class="comment">#输入的命令</span></span><br></pre></td></tr></table></figure>
 
 <h5 id="11-5-3、将maven工程推送到gitlab中"><a href="#11-5-3、将maven工程推送到gitlab中" class="headerlink" title="11.5.3、将maven工程推送到gitlab中"></a>11.5.3、将maven工程推送到gitlab中</h5><blockquote>
 <p>执行git命令推送到gitlab</p>
